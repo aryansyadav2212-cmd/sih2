@@ -1,0 +1,282 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+///////////////////////////////////////////////////////////////////
+
+// ============================================================
+// PROJECT
+// Stable/master information about a PAIMANA project
+// ============================================================
+
+model Project {
+  id        String   @id @default(cuid())
+  startDate DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Official PAIMANA identifiers
+  projectCode    String  @unique
+  legacyOcmsCode String?
+  pmgId          String?
+
+  // Project information
+  name String @db.Text
+
+  // Relationships
+  ministryId String?
+  ministry   Ministry? @relation(fields: [ministryId], references: [id])
+
+  sectorId String?
+  sector   Sector? @relation(fields: [sectorId], references: [id])
+
+  agencyId String?
+  agency   Agency? @relation(fields: [agencyId], references: [id])
+
+  stateId String?
+  state   State?  @relation(fields: [stateId], references: [id])
+
+  // Baseline information
+  approvalDate                 DateTime?
+  originalTargetCompletionDate DateTime?
+  originalTargetCost           Decimal?  @db.Decimal(18, 2)
+  cumulativeExpenditure        Decimal?  @db.Decimal(18, 2)
+  physicalProgressPercent      Decimal?  @db.Decimal(5, 2)
+
+  // Monthly observations
+  observations ProjectObservation[]
+
+  // Future intelligence layer
+  riskAssessments RiskAssessment[]
+  earlyWarnings   EarlyWarning[]
+
+  @@index([ministryId])
+  @@index([sectorId])
+  @@index([agencyId])
+  @@index([stateId])
+}
+
+// ============================================================
+// MINISTRY / DEPARTMENT
+// ============================================================
+
+model Ministry {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  projects Project[]
+}
+
+// ============================================================
+// SECTOR
+// ============================================================
+
+model Sector {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  projects Project[]
+}
+
+// ============================================================
+// IMPLEMENTING AGENCY
+// ============================================================
+
+model Agency {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  projects Project[]
+}
+
+// ============================================================
+// STATE
+// ============================================================
+
+model State {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  projects Project[]
+}
+
+// ============================================================
+// MONTHLY PROJECT OBSERVATION
+// This is the most important table for our ML/time-series layer.
+// One project can have many observations.
+// ============================================================
+
+model ProjectObservation {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  // PAIMANA reporting period
+  reportingMonth DateTime
+
+  // Current/revised financial information
+  revisedCost Decimal? @db.Decimal(18, 2)
+
+  cumulativeExpenditure Decimal? @db.Decimal(18, 2)
+
+  // Current/revised schedule
+  revisedCompletionDate DateTime?
+
+  // Current physical progress
+  physicalProgressPercent Decimal? @db.Decimal(5, 2)
+
+  // Which import produced this observation?
+  dataImportId String?
+  dataImport   DataImport? @relation(fields: [dataImportId], references: [id])
+
+  @@unique([projectId, reportingMonth])
+  @@index([projectId])
+  @@index([reportingMonth])
+}
+
+// ============================================================
+// DATA IMPORT
+// Tracks where each batch of PAIMANA data came from.
+// ============================================================
+
+model DataImport {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  source String
+
+  reportName String?
+
+  reportingMonth DateTime
+
+  importedAt DateTime @default(now())
+
+  recordCount Int?
+
+  status ImportStatus @default(PENDING)
+
+  // Useful for tracking source/data problems
+  dataQualityNotes String? @db.Text
+
+  observations ProjectObservation[]
+
+  @@index([reportingMonth])
+}
+
+// ============================================================
+// RISK ASSESSMENT
+// Our system's intelligence layer.
+// NOT PAIMANA raw data.
+// ============================================================
+
+model RiskAssessment {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  // Risk scores
+  overallRiskScore   Decimal? @db.Decimal(5, 2)
+  costRiskScore      Decimal? @db.Decimal(5, 2)
+  scheduleRiskScore  Decimal? @db.Decimal(5, 2)
+  executionRiskScore Decimal? @db.Decimal(5, 2)
+
+  riskLevel RiskLevel?
+
+  predictionConfidence Decimal? @db.Decimal(5, 4)
+
+  // ML model version
+  modelVersion String?
+
+  // Which observation was used for this prediction?
+  observationId String?
+
+  @@index([projectId])
+  @@index([createdAt])
+}
+
+// ============================================================
+// EARLY WARNING
+// Human-readable warnings generated by our system.
+// ============================================================
+
+model EarlyWarning {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  type     WarningType
+  severity WarningSeverity
+
+  title       String
+  description String @db.Text
+
+  // Values that triggered the warning
+  triggerValue   Decimal? @db.Decimal(18, 4)
+  thresholdValue Decimal? @db.Decimal(18, 4)
+
+  recommendedAction String? @db.Text
+
+  isResolved Boolean @default(false)
+
+  resolvedAt DateTime?
+
+  @@index([projectId])
+  @@index([severity])
+  @@index([isResolved])
+}
+
+// ============================================================
+// ENUMS
+// ============================================================
+
+enum ImportStatus {
+  PENDING
+  PROCESSING
+  SUCCESS
+  FAILED
+  PARTIAL
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum WarningType {
+  COST_OVERRUN
+  SCHEDULE_DELAY
+  PROGRESS_DELAY
+  EXPENDITURE_PROGRESS_GAP
+  LOW_PROGRESS
+  DATA_QUALITY
+  GENERAL
+}
+
+enum WarningSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
