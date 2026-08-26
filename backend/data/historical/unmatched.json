@@ -1,0 +1,2912 @@
+{
+  "unmatched": [],
+  "conflicts": [
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "existingEntity": "P00792",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618325",
+        "legacyOcmsCode": "N24001537"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Dillai to Lahorijan Package-7"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "entities": [
+        "P00792",
+        "P00901"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10262",
+        "projectCode": "618327",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening/Improvement to 4-Lane with Paved Shoulder from KM 113300 to Km 146230 Design Chainage 113830 to 145712 of Kwaram Taro Village - Dillai Section in Assam on EPC Package-6"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P00903"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10265",
+        "projectCode": "618330",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4/6 Laning from existing Km 159.400 of NH-36 to existing Km 102.500 of NH-39 and upto end point of Assam portion [Design Km 118.050 to design Km 132.375] Total New Alignment length of 14.325 Km of Daboka -Dimapur Section Dimapur Bypass in the state of Assam under SARDP-NE 'Phase-A' on EPC mode Assam Portion"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P00904"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "existingEntity": "P00795",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618339",
+        "legacyOcmsCode": "N24002025"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening/Improvement to 2-Lane Lane with Paved Shoulder from km 16900 Bogapani to km 27150 Golai Goan on existing Dibrugarh to Ledo section with proposed Digboi Bypass Green Field and Brownfield 2-LanePS of NH-315 OLD NH-38 in Tinsukia District under NHO- NE Package-4"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "entities": [
+        "P00795",
+        "P00906"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618441",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 501.800 11.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-I Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00921"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618442",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 477.000 to Km 490800 13.800 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-III Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00922"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618443",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 463.00 to Km 477.000 14.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-II Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00923"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618444",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 453.000 to Km 490.800, under SARDP- NE , under EPC Mode in the state of Assam Pkg-IV Structures & Toll Plaza"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00924"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002030",
+      "existingEntity": "P00925",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10314",
+        "projectCode": "618455",
+        "legacyOcmsCode": "N24002030"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Development of External Trunk Connectivity and Internal Infrastructure Works at Multi Model Logistics ParkMMLP at Jogighopa in the State of Assam on EPC Mode Package-I Road and Utility Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002030",
+      "entities": [
+        "P00925",
+        "P00926"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10807",
+        "projectCode": "619013",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 501.800 to Km 514.800 13.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-II Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00930"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "11756",
+        "projectCode": "619060",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 514.800 to Km 534.800 20.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-III Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00932"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618004",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Bhabhua Bypass from Ch. 10800Design Ch. 10800 to Ch. 19860 Design Ch. 18150 and Chand Bypass from Ch. 38060 Design Ch. 36250 to Ch. 40460 Design Ch. 38650 and widening of existing road to 2 - lane with Paved shoulder from Ch. 40460 Design Ch. 38650 to Ch. 46860 Design Ch. 45050 of NH-219 Total length- 16.150 Kmunder EPC mode in the state of Bihar"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P00940"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002118",
+      "existingEntity": "P01033",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618022",
+        "legacyOcmsCode": "N24002118"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Upgradation to two lane with paved Shoulder Configuaration from Km. 0/00 to 47/000 of NH 351 Mahuva to Badhada section in the State of Gujarat"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002118",
+      "entities": [
+        "P01033",
+        "P01040"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10597",
+        "projectCode": "618835",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "4L of Bal Works of Talaja - Mahuva from 54.990 km. to 100.450 km. of Old NH-8E Package-II"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01065"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001901",
+      "existingEntity": "P01123",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10219",
+        "projectCode": "618224",
+        "legacyOcmsCode": "N24001901"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation and up-gradation to 2 lane with paved shoulder from existing chainage km 49150 to km 64535 Design chainage km 46.450 to km 55.800 including construction of Sungal Tunnel Total length of Tunnel 2.79 km under 13 TF on Akhnoor-Poonch road NH-144A under Project Sampark BRO in the UT of Jammu & Kashmir on EPC mode Package-II Job no NH-144A-J&K-2019-20-78"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001901",
+      "entities": [
+        "P01123",
+        "P01124"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618396",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction & Upgradation to 2 lane with paved shoulder from Design Km. 31.449 Khellani Ex. Km 44.946 to Km 51.700 Prem Nagar Ex. Km 68617 of 20.251 Km length on Khellani - Kishtwar - Chattroo section of NH-244 in the UT of J&K on EPC Mode under NHO-Gen PKG- 1"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01129"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "existingEntity": "P00942",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10593",
+        "projectCode": "618829",
+        "legacyOcmsCode": "N24001590"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "4L from km 196.87 Sankha to km 219.6 Khajuri on NH-75 [Rehla / Garhwa Bypass]"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "entities": [
+        "P00942",
+        "P01162"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617989",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Major Bridge at Km.180.865 across river Krishna on NH 167 Hagari Jadcherla section"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P01177"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618000",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2-Lane with Paved Shoulders from Km 116.800 to 149.070Design Changes on Hosadurga - Holalkere Section of NH-173 in the State of Karnataka on EPC mode under Annual Plan 2021-22 Job no. NH-173-KNT-2021-22-946"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01180"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "existingEntity": "P00791",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618133",
+        "legacyOcmsCode": "N24000983"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Strengthening and Widening of road Sakoli- Wadsa-Armori-Gadchiroli-Ashti- Allapalli - Sironcha National highway NH 353C in Km 262/00 to 321/00 including 16 minor Bridges and 2 Major Bridge Total length 59 Km section from repanpalli to sironcha in Gadchiroli Dist in the State of Maharashtra."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "entities": [
+        "P00791",
+        "P01346"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "existingEntity": "P00792",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618136",
+        "legacyOcmsCode": "N24001537"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Upgradatiobn and Rehabilitation of Section of NH 361 F from Parli 00/000 to Gangakhed 30/400 to Two Lanes with paved shoulder / Four lane configurations on EPC mode in the State of Maharashtra."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "entities": [
+        "P00792",
+        "P01348"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "existingEntity": "P01178",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10193",
+        "projectCode": "618153",
+        "legacyOcmsCode": "N24000979"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Satara to Mhaswad"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "entities": [
+        "P01178",
+        "P01354"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618154",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation & upgradation of Jamkhed to Sautada Section of NH548 D from km 195.375 to km 208.774, Length 13.399 Km to 2L PS /4L configuration with rigid pavement in the state of Maharashtra on EPC mode."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01355"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10267",
+        "projectCode": "618333",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from km 169570 Near Nungkao vlllage under Tamenglong District to km 205974 near Jiribam Bridge under Jiribam district under NHO-NE PKG-7"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01417"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10268",
+        "projectCode": "618334",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 Lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from km 131.280 to km 169.570 on EPC mode in Manipur under NHO- TSP PKG-6"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01418"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "existingEntity": "P01178",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618335",
+        "legacyOcmsCode": "N24000979"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 Lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from Km 101280 Near Khongsang Village to Km 131280 near Puilon Kambiron Village on EPC Mode in Manipur PKG-5"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "entities": [
+        "P01178",
+        "P01419"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10269",
+        "projectCode": "618336",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 -Lane with Paved shoulder of Imphal to Jiribam section of NH-37 from Design Chainage 66.110 km to 101.280 Km Existing Chainage km 67.496 to km 103.557 on EPC Mode in Manipur PKG-4"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01420"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "existingEntity": "P00806",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618337",
+        "legacyOcmsCode": "N24001416"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 -Lane with Paved shoulder of Imphal to Jiribam section of NH-37 from Design Chainage 33.000 km to 66.390 Km Existing Chainage from km 33.395 to km 67.496 on EPC Mode in Manipur PKG-3"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "entities": [
+        "P00806",
+        "P01421"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10271",
+        "projectCode": "618344",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2-lane with Hard shoulder of Churachandpur to Tuivai Section of NH- 102B from Design Chainage 69.875 Km to 121.769 Km in the State of Manipur on EPC mode Package-3"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01423"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10270",
+        "projectCode": "618341",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Up-gradation to 2-lane with paved shoulders of Ngopa - Pawlrang section of NH 102B of Aizawl - Imphal Economic Corridor from Existing Chainage km 32.796 to km 72.030 [Design Chainage km 31.280 to km 68.170] in the State of Mizoram under Bharatmala Pariyojna on EPC mode under NHO-NE Package-2 Keifang- Tuivai Pkg-2"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P01458"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "existingEntity": "P00796",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618342",
+        "legacyOcmsCode": "N24001278"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation and upgradation to 2 Lane with Paved shoulder of Economic corridor of NH-6 from Design chaiange Km 0.000 to Km 13.510 Package-1 in the state of Mizoram under Bharatmala Pariyojana on EPC mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "entities": [
+        "P00796",
+        "P01459"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "existingEntity": "P01190",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618343",
+        "legacyOcmsCode": "N24001281"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation and Up gradation to 2-lane with paved shoulder of Keifang Section Economic Corridor of NH-06 from Existing Chainage Km 30050 Keifang to Km 50360 Keifang, Design Chainage Km 27400 to Km 45040 PkgIII in the State of Mizoram under Bharatmala Pariyojna on EPC Mode Seling-Dulte - III"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "entities": [
+        "P01190",
+        "P01460"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "existingEntity": "P00796",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10263",
+        "projectCode": "618328",
+        "legacyOcmsCode": "N24001278"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "4-Laning of Balance work of Dimapur-Kohima Road from design km 152.490 to km 166.700 Existing km 156.000 to km 172.900 Excluding Dimapur & Kohima Bypass under SARDP-NE Package-III"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "entities": [
+        "P00796",
+        "P01556"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "existingEntity": "P01190",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10264",
+        "projectCode": "618329",
+        "legacyOcmsCode": "N24001281"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4/6 Laning from Km 132.375 to Km 153.058 Total New Alignment length of 20.683 Km of Daboka-Dimapur Section Dimapur Bypass Nagaland Portion of NH-36 & 39 in the State of Nagaland on EPC basis under PhaseA of SARDP-NE"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "entities": [
+        "P01190",
+        "P01557"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "existingEntity": "P00907",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618003",
+        "legacyOcmsCode": "N24001419"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of four lane ROB and its approaches in lieu of existing Level Crossing No. RV-71 at km 435 on NH-217 New NH-353 at Khariar including land acquisition under NHO in Annual Plan 2021-22 for the state of Odisha for F.Y. 2021-22 to F.Y 2033-34"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "entities": [
+        "P00907",
+        "P01578"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "existingEntity": "P00941",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618819",
+        "legacyOcmsCode": "N24001647"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Balance work of Panikoili Rimoli Section of new NH-20 from Km 0.00 to Km. 163.000"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "entities": [
+        "P00941",
+        "P01591"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "existingEntity": "P00806",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10346",
+        "projectCode": "618488",
+        "legacyOcmsCode": "N24001416"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Delhi-Amritsar-Katra Expressway Phase-I Pkg-VIII from Junction with Ludhiana- Malerkotla SH-11 near Bhogiwal village to Junction with Ludhiana-Moga road NH-5 near Mullanpur Dakha Km 225770 to km 260860"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "entities": [
+        "P00806",
+        "P01610"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "existingEntity": "P01548",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10348",
+        "projectCode": "618490",
+        "legacyOcmsCode": "N24001418"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Delhi-Amritsar-Katra Expressway Phase-I Pkg-X from Jn. with Jalandhar - Moga road NH-703 to Jn. with Jalandhar-Kapurthala road NH-703A and to Jn. with Kapurthala - Sultanpur Lodhi road NH-703A km 000 to km 24000 to Amritsar connectivity"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "entities": [
+        "P01548",
+        "P01612"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "existingEntity": "P00907",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10349",
+        "projectCode": "618491",
+        "legacyOcmsCode": "N24001419"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Delhi-Amritsar-Katra Expressway Phase-I Pkg-XI from Junction with Jalandhar - Kapurthala road NH-703A near khojewal village to Junction with Amritsar-Mehta- SriHargobindpur-Tanda road NH-503A near SriHargobindpur Km 319400 to km 362420"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "entities": [
+        "P00907",
+        "P01613"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001925",
+      "existingEntity": "P01152",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617983",
+        "legacyOcmsCode": "N24001925"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening & Strengthening of Existing 2LPS to 4 lane PS from Km 150000 to Km 159000 and Km 165400 to Km 186000 of NH-163 old NH-202 under NH O for the year 2020-21 on EPC Mode in the state of Telangana."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001925",
+      "entities": [
+        "P01152",
+        "P01716"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "existingEntity": "P01190",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617992",
+        "legacyOcmsCode": "N24001281"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation & upgradation of NH - 167 from design km 187.723 to 234.434 Miryalaguda to Kodad section to two lane with paved shoulder on EPC mode in the state of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "entities": [
+        "P01190",
+        "P01717"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617994",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation and upgradation of NH-167 from design km 113.900 to 154.479 Mallepally Haliya section to two lane with paved shoulders on EPC mode in the stte of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P01719"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617995",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to Two Lane with Paved Shoulders from Km 67.000 to Km 114.425 of Kalwakurthy- Mallapally Section of NH 167 Erstwhile section of SH 18 in the State of Telangana on EPC mode under NH O Annual Plan 2016-17"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01720"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617996",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2/4 Lane with paved shoulders from Km 182.120 to Km 227.600 of NH 167 on Haggari-Jadcherla Road on EPC mode under NHO in the state of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01721"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "existingEntity": "P00806",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618001",
+        "legacyOcmsCode": "N24001416"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4-lane flyover at Amberpet-X road, Hyderabad on NH-202 in the State of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "entities": [
+        "P00806",
+        "P01722"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000989",
+      "existingEntity": "P00790",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618132",
+        "legacyOcmsCode": "N24000989"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening & strengthening of existing carriageway in 2 lane with paved shoulders from km 25/0 to 59/2 design Ch km 25.467 to 59.200 of NH - 353C on EPC mode in the state of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000989",
+      "entities": [
+        "P00790",
+        "P01730"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618141",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening and Improvement of existing carriage way to 2 lane with paved shoulders from Km. 86/160 to 131/730 of Jangaon-Duddeda section of NH-365B in the State of Telangana on EPC Mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P01732"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "existingEntity": "P00795",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618142",
+        "legacyOcmsCode": "N24002025"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to Two lane with Paved shoulders from km.40/410 to 84/037 of Thirumanlagiri-- Suryapet Section of NH-365B earstwhile section of SH-16"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "entities": [
+        "P00795",
+        "P01733"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "existingEntity": "P00791",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618143",
+        "legacyOcmsCode": "N24000983"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "widening to two lane with Paved shoulders from Km.0/970 to Km.40/410 of Jangaon - Thirumal giriof NH- 365B in the state of Telanganaon EPC mode under NHO Annual Plan 2016-17"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "entities": [
+        "P00791",
+        "P01734"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618386",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation & Upgradation of Road from Km 0.00 to Km 18.600 Total length-18.600 km of Kumarghat-Kailashahar section on NH-208 to 2-lane with Paved shoulder on EPC bais under NHO"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P01765"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10305",
+        "projectCode": "618417",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4-Lane with paved shoulder Agartala bypass Western side, length 25.402 km connecting NH-8 near Amtali to NH-108B near Lembuchhera in the state of Tripura on EPC basis under NHO-NE"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01767"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "existingEntity": "P01424",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618008",
+        "legacyOcmsCode": "N24001730"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of four-lane elevated viaduct from km.4634 to km.6345 on NH-24A including Retaining wall, service lane, at grade road and improvement of junctions, on EPC mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "entities": [
+        "P01424",
+        "P01771"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "existingEntity": "P01548",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10195",
+        "projectCode": "618163",
+        "legacyOcmsCode": "N24001418"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation and Up-gradation from km. 0000 to km.40390 of NH-730S MaharajganjNichloulThuthibari to two lane with paved shoulders in the State of U.P. on Engineering, Procurement & Construction EPC Basis."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "entities": [
+        "P01548",
+        "P01791"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "existingEntity": "P00907",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10196",
+        "projectCode": "618164",
+        "legacyOcmsCode": "N24001419"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of four lane highway with paved shoulder from Km.74.700 to Km.112.950 of NH-731A i/c Yamuna Bridge on HAM in the state of Uttar Pradesh."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "entities": [
+        "P00907",
+        "P01792"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10197",
+        "projectCode": "618165",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4-lane highway with paved shoulders from Km 49.155 to Km 74.700 of NH-731A on Hybrid Annuity Mode in the state of Uttar Pradesh"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P01793"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "existingEntity": "P00941",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10198",
+        "projectCode": "618166",
+        "legacyOcmsCode": "N24001647"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4-lane green field highway from Km. 35.000 to Km. 49.155 of NH- 731A with paved shoulders on Hybrid Annuity Mode in the state of Uttar Pradesh"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "entities": [
+        "P00941",
+        "P01794"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "existingEntity": "P00942",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618167",
+        "legacyOcmsCode": "N24001590"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation & Upgradation of NH-731A from Km.0.00 to Km.35.00 to 2-lane with paved shoulder under EPC mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "entities": [
+        "P00942",
+        "P01795"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10199",
+        "projectCode": "618168",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to four lane with paved shoulder from Design Km.49.200 to Km.89.285 of NH-731B on EPC mode in the state of Uttar Pradesh"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01796"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "existingEntity": "P01424",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10200",
+        "projectCode": "618169",
+        "legacyOcmsCode": "N24001730"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Two Lane with paved shoulder highway from Design Ch.0.000 to Ch.49.2OO of NH-731B on EPC Mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "entities": [
+        "P01424",
+        "P01797"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "existingEntity": "P01424",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10620",
+        "projectCode": "618865",
+        "legacyOcmsCode": "N24001730"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "4L from Gaju Village at Km. 32.982 to Devinagar Bypass End at Km. 208.000 of NH- 530B Pkg-1C."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "entities": [
+        "P01424",
+        "P01847"
+      ]
+    },
+    {
+      "type": "index_collision",
+      "field": "projectCode",
+      "value": "619051",
+      "entities": [
+        "P00163",
+        "P01982"
+      ]
+    },
+    {
+      "type": "index_collision",
+      "field": "projectCode",
+      "value": "619056",
+      "entities": [
+        "P00179",
+        "P01983"
+      ]
+    },
+    {
+      "type": "index_collision",
+      "field": "projectCode",
+      "value": "705912",
+      "entities": [
+        "P00747",
+        "P02005"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "existingEntity": "P00792",
+      "matchedEntity": "P00901",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618325",
+        "legacyOcmsCode": "N24001537"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Dillai to Lahorijan Package-7"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "entities": [
+        "P00792",
+        "P00901"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": "P00903",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10262",
+        "projectCode": "618327",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening/Improvement to 4-Lane with Paved Shoulder from KM 113300 to Km 146230 Design Chainage 113830 to 145712 of Kwaram Taro Village - Dillai Section in Assam on EPC Package-6"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P00903"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": "P00904",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10265",
+        "projectCode": "618330",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of 4/6 Laning from existing Km 159.400 of NH-36 to existing Km 102.500 of NH-39 and upto end point of Assam portion [Design Km 118.050 to design Km 132.375] Total New Alignment length of 14.325 Km of Daboka -Dimapur Section Dimapur Bypass in the state of Assam under SARDP-NE 'Phase-A' on EPC mode Assam Portion"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P00904"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "existingEntity": "P00795",
+      "matchedEntity": "P00906",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618339",
+        "legacyOcmsCode": "N24002025"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening/Improvement to 2-Lane Lane with Paved Shoulder from km 16900 Bogapani to km 27150 Golai Goan on existing Dibrugarh to Ledo section with proposed Digboi Bypass Green Field and Brownfield 2-LanePS of NH-315 OLD NH-38 in Tinsukia District under NHO- NE Package-4"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "entities": [
+        "P00795",
+        "P00906"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": "P00921",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618441",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 501.800 11.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-I Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00921"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": "P00922",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618442",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 477.000 to Km 490800 13.800 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-III Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00922"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": "P00923",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618443",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 463.00 to Km 477.000 14.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-II Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00923"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": "P00924",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618444",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 453.000 to Km 490.800, under SARDP- NE , under EPC Mode in the state of Assam Pkg-IV Structures & Toll Plaza"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00924"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002030",
+      "existingEntity": "P00925",
+      "matchedEntity": "P00926",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10314",
+        "projectCode": "618455",
+        "legacyOcmsCode": "N24002030"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Development of External Trunk Connectivity and Internal Infrastructure Works at Multi Model Logistics ParkMMLP at Jogighopa in the State of Assam on EPC Mode Package-I Road and Utility Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002030",
+      "entities": [
+        "P00925",
+        "P00926"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": "P00930",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10807",
+        "projectCode": "619013",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 501.800 to Km 514.800 13.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-II Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00930"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": "P00932",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "11756",
+        "projectCode": "619060",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 514.800 to Km 534.800 20.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-III Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00932"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": "P00940",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618004",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Bhabhua Bypass from Ch. 10800Design Ch. 10800 to Ch. 19860 Design Ch. 18150 and Chand Bypass from Ch. 38060 Design Ch. 36250 to Ch. 40460 Design Ch. 38650 and widening of existing road to 2 - lane with Paved shoulder from Ch. 40460 Design Ch. 38650 to Ch. 46860 Design Ch. 45050 of NH-219 Total length- 16.150 Kmunder EPC mode in the state of Bihar"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P00940"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002118",
+      "existingEntity": "P01033",
+      "matchedEntity": "P01040",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618022",
+        "legacyOcmsCode": "N24002118"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Upgradation to two lane with paved Shoulder Configuaration from Km. 0/00 to 47/000 of NH 351 Mahuva to Badhada section in the State of Gujarat"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002118",
+      "entities": [
+        "P01033",
+        "P01040"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": "P01065",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10597",
+        "projectCode": "618835",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "4L of Bal Works of Talaja - Mahuva from 54.990 km. to 100.450 km. of Old NH-8E Package-II"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01065"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001901",
+      "existingEntity": "P01123",
+      "matchedEntity": "P01124",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10219",
+        "projectCode": "618224",
+        "legacyOcmsCode": "N24001901"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation and up-gradation to 2 lane with paved shoulder from existing chainage km 49150 to km 64535 Design chainage km 46.450 to km 55.800 including construction of Sungal Tunnel Total length of Tunnel 2.79 km under 13 TF on Akhnoor-Poonch road NH-144A under Project Sampark BRO in the UT of Jammu & Kashmir on EPC mode Package-II Job no NH-144A-J&K-2019-20-78"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001901",
+      "entities": [
+        "P01123",
+        "P01124"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": "P01129",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618396",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction & Upgradation to 2 lane with paved shoulder from Design Km. 31.449 Khellani Ex. Km 44.946 to Km 51.700 Prem Nagar Ex. Km 68617 of 20.251 Km length on Khellani - Kishtwar - Chattroo section of NH-244 in the UT of J&K on EPC Mode under NHO-Gen PKG- 1"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01129"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "existingEntity": "P00942",
+      "matchedEntity": "P01162",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10593",
+        "projectCode": "618829",
+        "legacyOcmsCode": "N24001590"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "4L from km 196.87 Sankha to km 219.6 Khajuri on NH-75 [Rehla / Garhwa Bypass]"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "entities": [
+        "P00942",
+        "P01162"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": "P01177",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617989",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Major Bridge at Km.180.865 across river Krishna on NH 167 Hagari Jadcherla section"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P01177"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": "P01180",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618000",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2-Lane with Paved Shoulders from Km 116.800 to 149.070Design Changes on Hosadurga - Holalkere Section of NH-173 in the State of Karnataka on EPC mode under Annual Plan 2021-22 Job no. NH-173-KNT-2021-22-946"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01180"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "existingEntity": "P00791",
+      "matchedEntity": "P01346",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618133",
+        "legacyOcmsCode": "N24000983"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Strengthening and Widening of road Sakoli- Wadsa-Armori-Gadchiroli-Ashti- Allapalli - Sironcha National highway NH 353C in Km 262/00 to 321/00 including 16 minor Bridges and 2 Major Bridge Total length 59 Km section from repanpalli to sironcha in Gadchiroli Dist in the State of Maharashtra."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "entities": [
+        "P00791",
+        "P01346"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "existingEntity": "P00792",
+      "matchedEntity": "P01348",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618136",
+        "legacyOcmsCode": "N24001537"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Upgradatiobn and Rehabilitation of Section of NH 361 F from Parli 00/000 to Gangakhed 30/400 to Two Lanes with paved shoulder / Four lane configurations on EPC mode in the State of Maharashtra."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "entities": [
+        "P00792",
+        "P01348"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "existingEntity": "P01178",
+      "matchedEntity": "P01354",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10193",
+        "projectCode": "618153",
+        "legacyOcmsCode": "N24000979"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Satara to Mhaswad"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "entities": [
+        "P01178",
+        "P01354"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": "P01355",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618154",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation & upgradation of Jamkhed to Sautada Section of NH548 D from km 195.375 to km 208.774, Length 13.399 Km to 2L PS /4L configuration with rigid pavement in the state of Maharashtra on EPC mode."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01355"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": "P01417",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10267",
+        "projectCode": "618333",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2 lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from km 169570 Near Nungkao vlllage under Tamenglong District to km 205974 near Jiribam Bridge under Jiribam district under NHO-NE PKG-7"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01417"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": "P01418",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10268",
+        "projectCode": "618334",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2 Lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from km 131.280 to km 169.570 on EPC mode in Manipur under NHO- TSP PKG-6"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01418"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "existingEntity": "P01178",
+      "matchedEntity": "P01419",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618335",
+        "legacyOcmsCode": "N24000979"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2 Lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from Km 101280 Near Khongsang Village to Km 131280 near Puilon Kambiron Village on EPC Mode in Manipur PKG-5"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "entities": [
+        "P01178",
+        "P01419"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": "P01420",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10269",
+        "projectCode": "618336",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2 -Lane with Paved shoulder of Imphal to Jiribam section of NH-37 from Design Chainage 66.110 km to 101.280 Km Existing Chainage km 67.496 to km 103.557 on EPC Mode in Manipur PKG-4"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01420"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "existingEntity": "P00806",
+      "matchedEntity": "P01421",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618337",
+        "legacyOcmsCode": "N24001416"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2 -Lane with Paved shoulder of Imphal to Jiribam section of NH-37 from Design Chainage 33.000 km to 66.390 Km Existing Chainage from km 33.395 to km 67.496 on EPC Mode in Manipur PKG-3"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "entities": [
+        "P00806",
+        "P01421"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": "P01423",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10271",
+        "projectCode": "618344",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2-lane with Hard shoulder of Churachandpur to Tuivai Section of NH- 102B from Design Chainage 69.875 Km to 121.769 Km in the State of Manipur on EPC mode Package-3"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01423"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": "P01458",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10270",
+        "projectCode": "618341",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Up-gradation to 2-lane with paved shoulders of Ngopa - Pawlrang section of NH 102B of Aizawl - Imphal Economic Corridor from Existing Chainage km 32.796 to km 72.030 [Design Chainage km 31.280 to km 68.170] in the State of Mizoram under Bharatmala Pariyojna on EPC mode under NHO-NE Package-2 Keifang- Tuivai Pkg-2"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P01458"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "existingEntity": "P00796",
+      "matchedEntity": "P01459",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618342",
+        "legacyOcmsCode": "N24001278"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation and upgradation to 2 Lane with Paved shoulder of Economic corridor of NH-6 from Design chaiange Km 0.000 to Km 13.510 Package-1 in the state of Mizoram under Bharatmala Pariyojana on EPC mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "entities": [
+        "P00796",
+        "P01459"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "existingEntity": "P01190",
+      "matchedEntity": "P01460",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618343",
+        "legacyOcmsCode": "N24001281"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation and Up gradation to 2-lane with paved shoulder of Keifang Section Economic Corridor of NH-06 from Existing Chainage Km 30050 Keifang to Km 50360 Keifang, Design Chainage Km 27400 to Km 45040 PkgIII in the State of Mizoram under Bharatmala Pariyojna on EPC Mode Seling-Dulte - III"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "entities": [
+        "P01190",
+        "P01460"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "existingEntity": "P00796",
+      "matchedEntity": "P01556",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10263",
+        "projectCode": "618328",
+        "legacyOcmsCode": "N24001278"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "4-Laning of Balance work of Dimapur-Kohima Road from design km 152.490 to km 166.700 Existing km 156.000 to km 172.900 Excluding Dimapur & Kohima Bypass under SARDP-NE Package-III"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001278",
+      "entities": [
+        "P00796",
+        "P01556"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "existingEntity": "P01190",
+      "matchedEntity": "P01557",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10264",
+        "projectCode": "618329",
+        "legacyOcmsCode": "N24001281"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of 4/6 Laning from Km 132.375 to Km 153.058 Total New Alignment length of 20.683 Km of Daboka-Dimapur Section Dimapur Bypass Nagaland Portion of NH-36 & 39 in the State of Nagaland on EPC basis under PhaseA of SARDP-NE"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "entities": [
+        "P01190",
+        "P01557"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "existingEntity": "P00907",
+      "matchedEntity": "P01578",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618003",
+        "legacyOcmsCode": "N24001419"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of four lane ROB and its approaches in lieu of existing Level Crossing No. RV-71 at km 435 on NH-217 New NH-353 at Khariar including land acquisition under NHO in Annual Plan 2021-22 for the state of Odisha for F.Y. 2021-22 to F.Y 2033-34"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "entities": [
+        "P00907",
+        "P01578"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "existingEntity": "P00941",
+      "matchedEntity": "P01591",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618819",
+        "legacyOcmsCode": "N24001647"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Balance work of Panikoili Rimoli Section of new NH-20 from Km 0.00 to Km. 163.000"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "entities": [
+        "P00941",
+        "P01591"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "existingEntity": "P00806",
+      "matchedEntity": "P01610",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10346",
+        "projectCode": "618488",
+        "legacyOcmsCode": "N24001416"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Delhi-Amritsar-Katra Expressway Phase-I Pkg-VIII from Junction with Ludhiana- Malerkotla SH-11 near Bhogiwal village to Junction with Ludhiana-Moga road NH-5 near Mullanpur Dakha Km 225770 to km 260860"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "entities": [
+        "P00806",
+        "P01610"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "existingEntity": "P01548",
+      "matchedEntity": "P01612",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10348",
+        "projectCode": "618490",
+        "legacyOcmsCode": "N24001418"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Delhi-Amritsar-Katra Expressway Phase-I Pkg-X from Jn. with Jalandhar - Moga road NH-703 to Jn. with Jalandhar-Kapurthala road NH-703A and to Jn. with Kapurthala - Sultanpur Lodhi road NH-703A km 000 to km 24000 to Amritsar connectivity"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "entities": [
+        "P01548",
+        "P01612"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "existingEntity": "P00907",
+      "matchedEntity": "P01613",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10349",
+        "projectCode": "618491",
+        "legacyOcmsCode": "N24001419"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Delhi-Amritsar-Katra Expressway Phase-I Pkg-XI from Junction with Jalandhar - Kapurthala road NH-703A near khojewal village to Junction with Amritsar-Mehta- SriHargobindpur-Tanda road NH-503A near SriHargobindpur Km 319400 to km 362420"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "entities": [
+        "P00907",
+        "P01613"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001925",
+      "existingEntity": "P01152",
+      "matchedEntity": "P01716",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617983",
+        "legacyOcmsCode": "N24001925"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening & Strengthening of Existing 2LPS to 4 lane PS from Km 150000 to Km 159000 and Km 165400 to Km 186000 of NH-163 old NH-202 under NH O for the year 2020-21 on EPC Mode in the state of Telangana."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001925",
+      "entities": [
+        "P01152",
+        "P01716"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "existingEntity": "P01190",
+      "matchedEntity": "P01717",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617992",
+        "legacyOcmsCode": "N24001281"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation & upgradation of NH - 167 from design km 187.723 to 234.434 Miryalaguda to Kodad section to two lane with paved shoulder on EPC mode in the state of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001281",
+      "entities": [
+        "P01190",
+        "P01717"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": "P01719",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617994",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation and upgradation of NH-167 from design km 113.900 to 154.479 Mallepally Haliya section to two lane with paved shoulders on EPC mode in the stte of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P01719"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": "P01720",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617995",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to Two Lane with Paved Shoulders from Km 67.000 to Km 114.425 of Kalwakurthy- Mallapally Section of NH 167 Erstwhile section of SH 18 in the State of Telangana on EPC mode under NH O Annual Plan 2016-17"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01720"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": "P01721",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617996",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to 2/4 Lane with paved shoulders from Km 182.120 to Km 227.600 of NH 167 on Haggari-Jadcherla Road on EPC mode under NHO in the state of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01721"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "existingEntity": "P00806",
+      "matchedEntity": "P01722",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618001",
+        "legacyOcmsCode": "N24001416"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of 4-lane flyover at Amberpet-X road, Hyderabad on NH-202 in the State of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001416",
+      "entities": [
+        "P00806",
+        "P01722"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000989",
+      "existingEntity": "P00790",
+      "matchedEntity": "P01730",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618132",
+        "legacyOcmsCode": "N24000989"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening & strengthening of existing carriageway in 2 lane with paved shoulders from km 25/0 to 59/2 design Ch km 25.467 to 59.200 of NH - 353C on EPC mode in the state of Telangana"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000989",
+      "entities": [
+        "P00790",
+        "P01730"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": "P01732",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618141",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening and Improvement of existing carriage way to 2 lane with paved shoulders from Km. 86/160 to 131/730 of Jangaon-Duddeda section of NH-365B in the State of Telangana on EPC Mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P01732"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "existingEntity": "P00795",
+      "matchedEntity": "P01733",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618142",
+        "legacyOcmsCode": "N24002025"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to Two lane with Paved shoulders from km.40/410 to 84/037 of Thirumanlagiri-- Suryapet Section of NH-365B earstwhile section of SH-16"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "entities": [
+        "P00795",
+        "P01733"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "existingEntity": "P00791",
+      "matchedEntity": "P01734",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618143",
+        "legacyOcmsCode": "N24000983"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "widening to two lane with Paved shoulders from Km.0/970 to Km.40/410 of Jangaon - Thirumal giriof NH- 365B in the state of Telanganaon EPC mode under NHO Annual Plan 2016-17"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "entities": [
+        "P00791",
+        "P01734"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": "P01765",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618386",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation & Upgradation of Road from Km 0.00 to Km 18.600 Total length-18.600 km of Kumarghat-Kailashahar section on NH-208 to 2-lane with Paved shoulder on EPC bais under NHO"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P01765"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": "P01767",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10305",
+        "projectCode": "618417",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of 4-Lane with paved shoulder Agartala bypass Western side, length 25.402 km connecting NH-8 near Amtali to NH-108B near Lembuchhera in the state of Tripura on EPC basis under NHO-NE"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01767"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "existingEntity": "P01424",
+      "matchedEntity": "P01771",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618008",
+        "legacyOcmsCode": "N24001730"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of four-lane elevated viaduct from km.4634 to km.6345 on NH-24A including Retaining wall, service lane, at grade road and improvement of junctions, on EPC mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "entities": [
+        "P01424",
+        "P01771"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "existingEntity": "P01548",
+      "matchedEntity": "P01791",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10195",
+        "projectCode": "618163",
+        "legacyOcmsCode": "N24001418"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation and Up-gradation from km. 0000 to km.40390 of NH-730S MaharajganjNichloulThuthibari to two lane with paved shoulders in the State of U.P. on Engineering, Procurement & Construction EPC Basis."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001418",
+      "entities": [
+        "P01548",
+        "P01791"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "existingEntity": "P00907",
+      "matchedEntity": "P01792",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10196",
+        "projectCode": "618164",
+        "legacyOcmsCode": "N24001419"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of four lane highway with paved shoulder from Km.74.700 to Km.112.950 of NH-731A i/c Yamuna Bridge on HAM in the state of Uttar Pradesh."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001419",
+      "entities": [
+        "P00907",
+        "P01792"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": "P01793",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10197",
+        "projectCode": "618165",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of 4-lane highway with paved shoulders from Km 49.155 to Km 74.700 of NH-731A on Hybrid Annuity Mode in the state of Uttar Pradesh"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P01793"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "existingEntity": "P00941",
+      "matchedEntity": "P01794",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10198",
+        "projectCode": "618166",
+        "legacyOcmsCode": "N24001647"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of 4-lane green field highway from Km. 35.000 to Km. 49.155 of NH- 731A with paved shoulders on Hybrid Annuity Mode in the state of Uttar Pradesh"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001647",
+      "entities": [
+        "P00941",
+        "P01794"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "existingEntity": "P00942",
+      "matchedEntity": "P01795",
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618167",
+        "legacyOcmsCode": "N24001590"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Rehabilitation & Upgradation of NH-731A from Km.0.00 to Km.35.00 to 2-lane with paved shoulder under EPC mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "entities": [
+        "P00942",
+        "P01795"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": "P01796",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10199",
+        "projectCode": "618168",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Widening to four lane with paved shoulder from Design Km.49.200 to Km.89.285 of NH-731B on EPC mode in the state of Uttar Pradesh"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01796"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "existingEntity": "P01424",
+      "matchedEntity": "P01797",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10200",
+        "projectCode": "618169",
+        "legacyOcmsCode": "N24001730"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "Construction of Two Lane with paved shoulder highway from Design Ch.0.000 to Ch.49.2OO of NH-731B on EPC Mode"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "entities": [
+        "P01424",
+        "P01797"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "existingEntity": "P01424",
+      "matchedEntity": "P01847",
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10620",
+        "projectCode": "618865",
+        "legacyOcmsCode": "N24001730"
+      },
+      "reportMonth": "2026-05",
+      "projectName": "4L from Gaju Village at Km. 32.982 to Devinagar Bypass End at Km. 208.000 of NH- 530B Pkg-1C."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001730",
+      "entities": [
+        "P01424",
+        "P01847"
+      ]
+    }
+  ]
+}

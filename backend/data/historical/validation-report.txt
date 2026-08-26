@@ -1,0 +1,433 @@
+PAIMANA historical dataset validation
+========================================
+Canonical projects: 2077
+Total observations: 7590
+
+Projects per extracted month:
+  2026-04: 1981
+  2026-05: 1987
+  2026-06: 1847
+  2026-07: 1775
+
+Matched across all months: 1677
+Projects only in one month: 71
+First seen by month: {'2026-04': 1981, '2026-05': 39, '2026-06': 21, '2026-07': 36}
+Missing from a later report: 312
+Unmatched records: 0 {}
+Conflicts: 243 {'shared_secondary_identifier': 120, 'index_collision': 123}
+Same-month duplicate matches: 0
+Identifier changes: 0
+
+Duplicate identifiers within a month:
+{'2026-04': {'pmgId': 0, 'projectCode': 0, 'legacyOcmsCode': 26}, '2026-05': {'pmgId': 0, 'projectCode': 0, 'legacyOcmsCode': 26}, '2026-06': {'pmgId': 0, 'projectCode': 0, 'legacyOcmsCode': 0}, '2026-07': {'pmgId': 0, 'projectCode': 0, 'legacyOcmsCode': 0}}
+
+Missing values by field:
+  pmgId: 5176/7590 (68.19%)
+  projectCode: 0/7590 (0.0%)
+  legacyOcmsCode: 5236/7590 (68.99%)
+  projectName: 0/7590 (0.0%)
+  agency: 0/7590 (0.0%)
+  state: 0/7590 (0.0%)
+  ministry: 0/7590 (0.0%)
+  sector: 0/7590 (0.0%)
+  approvalDate: 64/7590 (0.84%)
+  startDate: 11/7590 (0.14%)
+  originalDoc: 11/7590 (0.14%)
+  revisedDoc: 1362/7590 (17.94%)
+  originalCost: 0/7590 (0.0%)
+  revisedCost: 0/7590 (0.0%)
+  cumulativeExpenditure: 0/7590 (0.0%)
+  physicalProgress: 0/7590 (0.0%)
+
+Longitudinal samples
+----------------------------------------
+Project: Ludhiana Mullanpur 21Km Doubling Railway project
+Canonical ID: P00736
+PMGID: None
+Project Code: 607653
+Legacy OCMS Code: None
+
+April:
+  Progress: 0.0
+  Expenditure: 10.0
+  Original cost: 234.78
+  Revised cost: 234.78
+  Revised DoC: None
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.90
+
+May:
+  Progress: 99.0
+  Expenditure: 61.39
+  Original cost: 234.78
+  Revised cost: 234.78
+  Revised DoC: 2027-02-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.89
+
+June:
+  Progress: 99.0
+  Expenditure: 61.39
+  Original cost: 234.78
+  Revised cost: 234.78
+  Revised DoC: 2027-02-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.93
+
+July:
+  Progress: 99.0
+  Expenditure: 61.39
+  Original cost: 234.78
+  Revised cost: 234.78
+  Revised DoC: 2027-02-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.88
+
+----------------------------------------
+Project: Widening and Up-gradation to 2-Lane with Paved Shoulder of configuration and geometric improvement from Km 0.000 to Km 16.990 on Chenani Sudhmahadev section of NH-244 in UT of Jammu and Kashmir to be executed on EPC basis
+Canonical ID: P01130
+PMGID: None
+Project Code: 618397
+Legacy OCMS Code: None
+
+April:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 255.9
+  Revised cost: 255.9
+  Revised DoC: 2022-02-01
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.113
+
+May:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 255.9
+  Revised cost: 255.9
+  Revised DoC: 2022-02-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.112
+
+June:
+  Progress: 94.06
+  Expenditure: 242.42
+  Original cost: 255.9
+  Revised cost: 255.9
+  Revised DoC: 2025-12-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.114
+
+July:
+  Progress: 94.06
+  Expenditure: 239.96
+  Original cost: 255.9
+  Revised cost: 255.9
+  Revised DoC: 2025-12-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.106
+
+----------------------------------------
+Project: Up-gradation to 4-lane with Paved Shoulder of Jammu-Akhnoor road section of NH- 144A from Ganesh Vihar Km 6.000 to Khati Chowk Km 26.350 in UT of Jammu and Kashmir on EPC basis Pkg-3A
+Canonical ID: P01134
+PMGID: None
+Project Code: 618406
+Legacy OCMS Code: N24000868
+
+April:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 322.49
+  Revised cost: 322.49
+  Revised DoC: 2022-05-01
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.113
+
+May:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 322.49
+  Revised cost: 322.49
+  Revised DoC: 2022-05-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.112
+
+June:
+  Progress: 92.21
+  Expenditure: 388.64
+  Original cost: 322.49
+  Revised cost: 322.49
+  Revised DoC: 2026-11-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.114
+
+July:
+  Progress: 92.5
+  Expenditure: 398.19
+  Original cost: 322.49
+  Revised cost: 322.49
+  Revised DoC: 2026-11-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.106
+
+----------------------------------------
+Project: Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 501.800 11.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-I Road Works
+Canonical ID: P00921
+PMGID: None
+Project Code: 618441
+Legacy OCMS Code: N24000320
+
+April:
+  Progress: 0.0
+  Expenditure: 72.13
+  Original cost: 467.79
+  Revised cost: 476.5
+  Revised DoC: None
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.101
+
+May:
+  Progress: 0.0
+  Expenditure: 72.13
+  Original cost: 467.79
+  Revised cost: 476.5
+  Revised DoC: None
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.100
+
+June:
+  Progress: 87.33
+  Expenditure: 0.0
+  Original cost: 467.79
+  Revised cost: 476.5
+  Revised DoC: 2026-07-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.103
+
+July:
+  Progress: 87.33
+  Expenditure: 97.88
+  Original cost: 467.79
+  Revised cost: 476.5
+  Revised DoC: 2026-10-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.96
+
+----------------------------------------
+Project: Expansion of Malanjkhand Copper Project
+Canonical ID: P00309
+PMGID: 160
+Project Code: 400426
+Legacy OCMS Code: None
+
+April:
+  Progress: 84.87
+  Expenditure: 965.07
+  Original cost: 185.0
+  Revised cost: 380.0
+  Revised DoC: 2029-03-01
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.70
+
+May:
+  Progress: 23.5
+  Expenditure: 979.15
+  Original cost: 185.0
+  Revised cost: 380.0
+  Revised DoC: 2029-03-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.68
+
+June:
+  Progress: 26.0
+  Expenditure: 100.0
+  Original cost: 185.0
+  Revised cost: 380.0
+  Revised DoC: 2029-03-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.73
+
+July:
+  Progress: 28.0
+  Expenditure: 101.0
+  Original cost: 185.0
+  Revised cost: 380.0
+  Revised DoC: 2029-03-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.69
+
+----------------------------------------
+Project: Widening to two lane with paved shoulders from Km 0.00 to 102.310 Design Chainage of NH-548B Murrum-Maharashtra Border in the State of Karnataka
+Canonical ID: P01192
+PMGID: 10191
+Project Code: 618149
+Legacy OCMS Code: None
+
+April:
+  Progress: 0.0
+  Expenditure: 248.13
+  Original cost: 957.09
+  Revised cost: 957.09
+  Revised DoC: 2027-01-01
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.116
+
+May:
+  Progress: 60.21
+  Expenditure: 248.81
+  Original cost: 957.09
+  Revised cost: 957.09
+  Revised DoC: 2027-01-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.116
+
+June:
+  Progress: 60.21
+  Expenditure: 288.15
+  Original cost: 957.09
+  Revised cost: 957.09
+  Revised DoC: 2027-01-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.118
+
+July:
+  Progress: 60.21
+  Expenditure: 288.23
+  Original cost: 957.09
+  Revised cost: 957.09
+  Revised DoC: 2027-01-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.110
+
+----------------------------------------
+Project: Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 534.800, under SARDP- NE on EPC Mode in the state of Assam Pkg- IV Structures & Toll Plaza
+Canonical ID: P00920
+PMGID: None
+Project Code: 618440
+Legacy OCMS Code: N24000320
+
+April:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 187.09
+  Revised cost: 100.22
+  Revised DoC: None
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.100
+
+May:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 187.09
+  Revised cost: 100.22
+  Revised DoC: None
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.100
+
+June:
+  Progress: 58.19
+  Expenditure: 0.0
+  Original cost: 187.09
+  Revised cost: 100.22
+  Revised DoC: 2026-07-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.103
+
+July:
+  Progress: 58.19
+  Expenditure: 16.71
+  Original cost: 187.09
+  Revised cost: 100.22
+  Revised DoC: 2026-10-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.96
+
+----------------------------------------
+Project: Nadikude-Srikalahasti 308.7 km
+Canonical ID: P00525
+PMGID: 1204
+Project Code: 400298
+Legacy OCMS Code: N22000286
+
+April:
+  Progress: 55.01
+  Expenditure: 306.0
+  Original cost: 231.0
+  Revised cost: 593.0
+  Revised DoC: 2028-03-01
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.80
+
+May:
+  Progress: 55.02
+  Expenditure: 311.0
+  Original cost: 231.0
+  Revised cost: 593.0
+  Revised DoC: 2028-03-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.79
+
+June:
+  Progress: 55.02
+  Expenditure: 311.0
+  Original cost: 231.0
+  Revised cost: 593.0
+  Revised DoC: 2028-03-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.84
+
+July:
+  Progress: 2.0
+  Expenditure: 253.0
+  Original cost: 231.0
+  Revised cost: 590.0
+  Revised DoC: 2028-03-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.80
+
+----------------------------------------
+Project: Rehabilitation and Up gradation of Charthana Jintur Section of NH 752 I Km 25100 to 47100 to 2 Lane with Paved Shoulder configuration Flexible Pavement in the state of Maharashtra on EPC mode. Reg- Resubmission of Annual Plan Estimate.
+Canonical ID: P01398
+PMGID: None
+Project Code: 619008
+Legacy OCMS Code: None
+
+April:
+  Progress: 0.0
+  Expenditure: 0.0
+  Original cost: 157.69
+  Revised cost: 157.69
+  Revised DoC: 2026-07-01
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.128
+
+May:
+  Progress: 51.0
+  Expenditure: 0.0
+  Original cost: 157.69
+  Revised cost: 157.69
+  Revised DoC: 2026-07-01
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.128
+
+June:
+  Progress: 51.0
+  Expenditure: 0.01
+  Original cost: 157.69
+  Revised cost: 157.69
+  Revised DoC: 2026-07-01
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.128
+
+July:
+  Progress: 51.0
+  Expenditure: 0.01
+  Original cost: 157.69
+  Revised cost: 157.69
+  Revised DoC: 2026-07-01
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.121
+
+----------------------------------------
+Project: Central Railway - Double chord line between Nilaje and Kopar 4.495 km PB34/CR/2023-24
+Canonical ID: P00630
+PMGID: None
+Project Code: 617364
+Legacy OCMS Code: None
+
+April:
+  Progress: 24.0
+  Expenditure: 24.04
+  Original cost: 338.33
+  Revised cost: 205.0
+  Revised DoC: None
+  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.85
+
+May:
+  Progress: 24.0
+  Expenditure: 29.33
+  Original cost: 338.33
+  Revised cost: 205.0
+  Revised DoC: None
+  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.84
+
+June:
+  Progress: 60.0
+  Expenditure: 55.83
+  Original cost: 338.33
+  Revised cost: 205.0
+  Revised DoC: None
+  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.89
+
+July:
+  Progress: 15.0
+  Expenditure: 57.54
+  Original cost: 338.33
+  Revised cost: 205.0
+  Revised DoC: None
+  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.84
+
+----------------------------------------

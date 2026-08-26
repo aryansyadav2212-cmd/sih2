@@ -1,0 +1,1747 @@
+{
+  "totalProjects": 2077,
+  "totalObservations": 7590,
+  "projectsPerMonth": {
+    "2026-04": 1981,
+    "2026-05": 1987,
+    "2026-06": 1847,
+    "2026-07": 1775
+  },
+  "matchedAcrossAllMonths": 1677,
+  "projectsOnlyAppearingInOneMonth": 71,
+  "firstSeenByMonth": {
+    "2026-04": 1981,
+    "2026-05": 39,
+    "2026-06": 21,
+    "2026-07": 36
+  },
+  "missingFromALaterReportCount": 312,
+  "unmatchedCount": 0,
+  "unmatchedReasons": {},
+  "conflictCount": 243,
+  "conflictTypes": {
+    "shared_secondary_identifier": 120,
+    "index_collision": 123
+  },
+  "duplicateMatchCount": 0,
+  "identifierChangeCount": 0,
+  "duplicateIdentifiersWithinMonth": {
+    "2026-04": {
+      "pmgId": 0,
+      "projectCode": 0,
+      "legacyOcmsCode": 26
+    },
+    "2026-05": {
+      "pmgId": 0,
+      "projectCode": 0,
+      "legacyOcmsCode": 26
+    },
+    "2026-06": {
+      "pmgId": 0,
+      "projectCode": 0,
+      "legacyOcmsCode": 0
+    },
+    "2026-07": {
+      "pmgId": 0,
+      "projectCode": 0,
+      "legacyOcmsCode": 0
+    }
+  },
+  "missingValues": {
+    "observationCount": 7590,
+    "fields": {
+      "pmgId": {
+        "missing": 5176,
+        "total": 7590,
+        "missingPercent": 68.19
+      },
+      "projectCode": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "legacyOcmsCode": {
+        "missing": 5236,
+        "total": 7590,
+        "missingPercent": 68.99
+      },
+      "projectName": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "agency": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "state": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "ministry": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "sector": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "approvalDate": {
+        "missing": 64,
+        "total": 7590,
+        "missingPercent": 0.84
+      },
+      "startDate": {
+        "missing": 11,
+        "total": 7590,
+        "missingPercent": 0.14
+      },
+      "originalDoc": {
+        "missing": 11,
+        "total": 7590,
+        "missingPercent": 0.14
+      },
+      "revisedDoc": {
+        "missing": 1362,
+        "total": 7590,
+        "missingPercent": 17.94
+      },
+      "originalCost": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "revisedCost": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "cumulativeExpenditure": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      },
+      "physicalProgress": {
+        "missing": 0,
+        "total": 7590,
+        "missingPercent": 0.0
+      }
+    },
+    "byMonth": {
+      "2026-04": {
+        "pmgId": 768,
+        "legacyOcmsCode": 797,
+        "revisedDoc": 354,
+        "approvalDate": 11
+      },
+      "2026-05": {
+        "pmgId": 786,
+        "legacyOcmsCode": 817,
+        "revisedDoc": 352,
+        "approvalDate": 22,
+        "startDate": 11,
+        "originalDoc": 11
+      },
+      "2026-06": {
+        "pmgId": 1847,
+        "legacyOcmsCode": 1847,
+        "revisedDoc": 308,
+        "approvalDate": 19
+      },
+      "2026-07": {
+        "pmgId": 1775,
+        "legacyOcmsCode": 1775,
+        "revisedDoc": 348,
+        "approvalDate": 12
+      }
+    }
+  },
+  "coverage": {
+    "byMonth": {
+      "2026-04": 1981,
+      "2026-05": 1987,
+      "2026-06": 1847,
+      "2026-07": 1775
+    },
+    "missingFromALaterReport": [
+      {
+        "canonicalId": "P00008",
+        "pmgId": "4831",
+        "projectCode": "701105",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00060",
+        "pmgId": "4836",
+        "projectCode": "611017",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00118",
+        "pmgId": "7760",
+        "projectCode": "615193",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00135",
+        "pmgId": "2998",
+        "projectCode": "400182",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00139",
+        "pmgId": "4835",
+        "projectCode": "611016",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00149",
+        "pmgId": "5525",
+        "projectCode": "612819",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00151",
+        "pmgId": null,
+        "projectCode": "615327",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00152",
+        "pmgId": "1665",
+        "projectCode": "400259",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00163",
+        "pmgId": null,
+        "projectCode": "619051",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00179",
+        "pmgId": null,
+        "projectCode": "619056",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00188",
+        "pmgId": "5451",
+        "projectCode": "611967",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00220",
+        "pmgId": null,
+        "projectCode": "611966",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00226",
+        "pmgId": "5224",
+        "projectCode": "900808",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00232",
+        "pmgId": "4690",
+        "projectCode": "400005",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00246",
+        "pmgId": null,
+        "projectCode": "611947",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00247",
+        "pmgId": "5434",
+        "projectCode": "611948",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00267",
+        "pmgId": "1749",
+        "projectCode": "702639",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00291",
+        "pmgId": null,
+        "projectCode": "702355",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00301",
+        "pmgId": null,
+        "projectCode": "702840",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00302",
+        "pmgId": null,
+        "projectCode": "702851",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00303",
+        "pmgId": null,
+        "projectCode": "702854",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00351",
+        "pmgId": "2530",
+        "projectCode": "701343",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00353",
+        "pmgId": "4049",
+        "projectCode": "400078",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00356",
+        "pmgId": "5468",
+        "projectCode": "701263",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00359",
+        "pmgId": "4373",
+        "projectCode": "400035",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00366",
+        "pmgId": "4908",
+        "projectCode": "607701",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00412",
+        "pmgId": null,
+        "projectCode": "709760",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00415",
+        "pmgId": null,
+        "projectCode": "709782",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00420",
+        "pmgId": null,
+        "projectCode": "709757",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00421",
+        "pmgId": "2523",
+        "projectCode": "701354",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00454",
+        "pmgId": null,
+        "projectCode": "709758",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00481",
+        "pmgId": "5630",
+        "projectCode": "612201",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00486",
+        "pmgId": "5505",
+        "projectCode": "612188",
+        "missingMonth": "2026-05",
+        "lastSeen": "2026-04"
+      },
+      {
+        "canonicalId": "P00495",
+        "pmgId": "551",
+        "projectCode": "400382",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00515",
+        "pmgId": "9899",
+        "projectCode": "617253",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00526",
+        "pmgId": null,
+        "projectCode": "611752",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00534",
+        "pmgId": "1800",
+        "projectCode": "705436",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00535",
+        "pmgId": "1799",
+        "projectCode": "705633",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00536",
+        "pmgId": "1873",
+        "projectCode": "705648",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00537",
+        "pmgId": "10768",
+        "projectCode": "618986",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00539",
+        "pmgId": "3221",
+        "projectCode": "706922",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00540",
+        "pmgId": null,
+        "projectCode": "706940",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00541",
+        "pmgId": null,
+        "projectCode": "706942",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00545",
+        "pmgId": "1883",
+        "projectCode": "705364",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00560",
+        "pmgId": "7527",
+        "projectCode": "617200",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00561",
+        "pmgId": null,
+        "projectCode": "617374",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00567",
+        "pmgId": null,
+        "projectCode": "709817",
+        "missingMonth": "2026-06",
+        "lastSeen": "2026-05"
+      },
+      {
+        "canonicalId": "P00570",
+        "pmgId": "6133",
+        "projectCode": "613785",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00571",
+        "pmgId": null,
+        "projectCode": "617379",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      },
+      {
+        "canonicalId": "P00580",
+        "pmgId": null,
+        "projectCode": "611977",
+        "missingMonth": "2026-07",
+        "lastSeen": "2026-06"
+      }
+    ]
+  },
+  "conflicts": [
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "existingEntity": "P00792",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618325",
+        "legacyOcmsCode": "N24001537"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Dillai to Lahorijan Package-7"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "entities": [
+        "P00792",
+        "P00901"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10262",
+        "projectCode": "618327",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening/Improvement to 4-Lane with Paved Shoulder from KM 113300 to Km 146230 Design Chainage 113830 to 145712 of Kwaram Taro Village - Dillai Section in Assam on EPC Package-6"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P00903"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "existingEntity": "P00805",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10265",
+        "projectCode": "618330",
+        "legacyOcmsCode": "N24001263"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of 4/6 Laning from existing Km 159.400 of NH-36 to existing Km 102.500 of NH-39 and upto end point of Assam portion [Design Km 118.050 to design Km 132.375] Total New Alignment length of 14.325 Km of Daboka -Dimapur Section Dimapur Bypass in the state of Assam under SARDP-NE 'Phase-A' on EPC mode Assam Portion"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001263",
+      "entities": [
+        "P00805",
+        "P00904"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "existingEntity": "P00795",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618339",
+        "legacyOcmsCode": "N24002025"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening/Improvement to 2-Lane Lane with Paved Shoulder from km 16900 Bogapani to km 27150 Golai Goan on existing Dibrugarh to Ledo section with proposed Digboi Bypass Green Field and Brownfield 2-LanePS of NH-315 OLD NH-38 in Tinsukia District under NHO- NE Package-4"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002025",
+      "entities": [
+        "P00795",
+        "P00906"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618441",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 501.800 11.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-I Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00921"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618442",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 477.000 to Km 490800 13.800 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-III Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00922"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618443",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 463.00 to Km 477.000 14.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-II Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00923"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "existingEntity": "P00919",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618444",
+        "legacyOcmsCode": "N24000319"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of the 4-Laning of the Section from Jorhat to Jhanji of NH-37 Old from Km 453.000 to Km 490.800, under SARDP- NE , under EPC Mode in the state of Assam Pkg-IV Structures & Toll Plaza"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000319",
+      "entities": [
+        "P00919",
+        "P00924"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002030",
+      "existingEntity": "P00925",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10314",
+        "projectCode": "618455",
+        "legacyOcmsCode": "N24002030"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Development of External Trunk Connectivity and Internal Infrastructure Works at Multi Model Logistics ParkMMLP at Jogighopa in the State of Assam on EPC Mode Package-I Road and Utility Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002030",
+      "entities": [
+        "P00925",
+        "P00926"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10807",
+        "projectCode": "619013",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 501.800 to Km 514.800 13.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-II Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00930"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "existingEntity": "P00920",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "11756",
+        "projectCode": "619060",
+        "legacyOcmsCode": "N24000320"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 514.800 to Km 534.800 20.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-III Road Works"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000320",
+      "entities": [
+        "P00920",
+        "P00932"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "existingEntity": "P00927",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618004",
+        "legacyOcmsCode": "N24001545"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Bhabhua Bypass from Ch. 10800Design Ch. 10800 to Ch. 19860 Design Ch. 18150 and Chand Bypass from Ch. 38060 Design Ch. 36250 to Ch. 40460 Design Ch. 38650 and widening of existing road to 2 - lane with Paved shoulder from Ch. 40460 Design Ch. 38650 to Ch. 46860 Design Ch. 45050 of NH-219 Total length- 16.150 Kmunder EPC mode in the state of Bihar"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001545",
+      "entities": [
+        "P00927",
+        "P00940"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002118",
+      "existingEntity": "P01033",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618022",
+        "legacyOcmsCode": "N24002118"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Upgradation to two lane with paved Shoulder Configuaration from Km. 0/00 to 47/000 of NH 351 Mahuva to Badhada section in the State of Gujarat"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002118",
+      "entities": [
+        "P01033",
+        "P01040"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "existingEntity": "P00943",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10597",
+        "projectCode": "618835",
+        "legacyOcmsCode": "N24001792"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "4L of Bal Works of Talaja - Mahuva from 54.990 km. to 100.450 km. of Old NH-8E Package-II"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001792",
+      "entities": [
+        "P00943",
+        "P01065"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001901",
+      "existingEntity": "P01123",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10219",
+        "projectCode": "618224",
+        "legacyOcmsCode": "N24001901"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation and up-gradation to 2 lane with paved shoulder from existing chainage km 49150 to km 64535 Design chainage km 46.450 to km 55.800 including construction of Sungal Tunnel Total length of Tunnel 2.79 km under 13 TF on Akhnoor-Poonch road NH-144A under Project Sampark BRO in the UT of Jammu & Kashmir on EPC mode Package-II Job no NH-144A-J&K-2019-20-78"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001901",
+      "entities": [
+        "P01123",
+        "P01124"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618396",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction & Upgradation to 2 lane with paved shoulder from Design Km. 31.449 Khellani Ex. Km 44.946 to Km 51.700 Prem Nagar Ex. Km 68617 of 20.251 Km length on Khellani - Kishtwar - Chattroo section of NH-244 in the UT of J&K on EPC Mode under NHO-Gen PKG- 1"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01129"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "existingEntity": "P00942",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10593",
+        "projectCode": "618829",
+        "legacyOcmsCode": "N24001590"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "4L from km 196.87 Sankha to km 219.6 Khajuri on NH-75 [Rehla / Garhwa Bypass]"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001590",
+      "entities": [
+        "P00942",
+        "P01162"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "existingEntity": "P00902",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "617989",
+        "legacyOcmsCode": "N24001450"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Construction of Major Bridge at Km.180.865 across river Krishna on NH 167 Hagari Jadcherla section"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001450",
+      "entities": [
+        "P00902",
+        "P01177"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618000",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2-Lane with Paved Shoulders from Km 116.800 to 149.070Design Changes on Hosadurga - Holalkere Section of NH-173 in the State of Karnataka on EPC mode under Annual Plan 2021-22 Job no. NH-173-KNT-2021-22-946"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01180"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "existingEntity": "P00791",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618133",
+        "legacyOcmsCode": "N24000983"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Strengthening and Widening of road Sakoli- Wadsa-Armori-Gadchiroli-Ashti- Allapalli - Sironcha National highway NH 353C in Km 262/00 to 321/00 including 16 minor Bridges and 2 Major Bridge Total length 59 Km section from repanpalli to sironcha in Gadchiroli Dist in the State of Maharashtra."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000983",
+      "entities": [
+        "P00791",
+        "P01346"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "existingEntity": "P00792",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618136",
+        "legacyOcmsCode": "N24001537"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Upgradatiobn and Rehabilitation of Section of NH 361 F from Parli 00/000 to Gangakhed 30/400 to Two Lanes with paved shoulder / Four lane configurations on EPC mode in the State of Maharashtra."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001537",
+      "entities": [
+        "P00792",
+        "P01348"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "existingEntity": "P01178",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10193",
+        "projectCode": "618153",
+        "legacyOcmsCode": "N24000979"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Satara to Mhaswad"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24000979",
+      "entities": [
+        "P01178",
+        "P01354"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "existingEntity": "P00875",
+      "matchedEntity": null,
+      "matchedBy": "projectCode",
+      "ids": {
+        "pmgId": null,
+        "projectCode": "618154",
+        "legacyOcmsCode": "N24001390"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Rehabilitation & upgradation of Jamkhed to Sautada Section of NH548 D from km 195.375 to km 208.774, Length 13.399 Km to 2L PS /4L configuration with rigid pavement in the state of Maharashtra on EPC mode."
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001390",
+      "entities": [
+        "P00875",
+        "P01355"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "existingEntity": "P00950",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10267",
+        "projectCode": "618333",
+        "legacyOcmsCode": "N24001323"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from km 169570 Near Nungkao vlllage under Tamenglong District to km 205974 near Jiribam Bridge under Jiribam district under NHO-NE PKG-7"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24001323",
+      "entities": [
+        "P00950",
+        "P01417"
+      ]
+    },
+    {
+      "type": "shared_secondary_identifier",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "existingEntity": "P01353",
+      "matchedEntity": null,
+      "matchedBy": "pmgId",
+      "ids": {
+        "pmgId": "10268",
+        "projectCode": "618334",
+        "legacyOcmsCode": "N24002132"
+      },
+      "reportMonth": "2026-04",
+      "projectName": "Widening to 2 Lane with Paved shoulder of lmphal to Jiribam section of NH-37 from Design Ch. from km 131.280 to km 169.570 on EPC mode in Manipur under NHO- TSP PKG-6"
+    },
+    {
+      "type": "index_collision",
+      "field": "legacyOcmsCode",
+      "value": "N24002132",
+      "entities": [
+        "P01353",
+        "P01418"
+      ]
+    }
+  ],
+  "unmatched": [],
+  "identifierChanges": [],
+  "samples": [
+    {
+      "canonicalId": "P00736",
+      "pmgId": null,
+      "projectCode": "607653",
+      "legacyOcmsCode": null,
+      "projectName": "Ludhiana Mullanpur 21Km Doubling Railway project",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Ludhiana Mullanpur 21Km Doubling Railway project\nCanonical ID: P00736\nPMGID: None\nProject Code: 607653\nLegacy OCMS Code: None\n\nApril:\n  Progress: 0.0\n  Expenditure: 10.0\n  Original cost: 234.78\n  Revised cost: 234.78\n  Revised DoC: None\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.90\n\nMay:\n  Progress: 99.0\n  Expenditure: 61.39\n  Original cost: 234.78\n  Revised cost: 234.78\n  Revised DoC: 2027-02-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.89\n\nJune:\n  Progress: 99.0\n  Expenditure: 61.39\n  Original cost: 234.78\n  Revised cost: 234.78\n  Revised DoC: 2027-02-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.93\n\nJuly:\n  Progress: 99.0\n  Expenditure: 61.39\n  Original cost: 234.78\n  Revised cost: 234.78\n  Revised DoC: 2027-02-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.88\n"
+    },
+    {
+      "canonicalId": "P01130",
+      "pmgId": null,
+      "projectCode": "618397",
+      "legacyOcmsCode": null,
+      "projectName": "Widening and Up-gradation to 2-Lane with Paved Shoulder of configuration and geometric improvement from Km 0.000 to Km 16.990 on Chenani Sudhmahadev section of NH-244 in UT of Jammu and Kashmir to be executed on EPC basis",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Widening and Up-gradation to 2-Lane with Paved Shoulder of configuration and geometric improvement from Km 0.000 to Km 16.990 on Chenani Sudhmahadev section of NH-244 in UT of Jammu and Kashmir to be executed on EPC basis\nCanonical ID: P01130\nPMGID: None\nProject Code: 618397\nLegacy OCMS Code: None\n\nApril:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 255.9\n  Revised cost: 255.9\n  Revised DoC: 2022-02-01\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.113\n\nMay:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 255.9\n  Revised cost: 255.9\n  Revised DoC: 2022-02-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.112\n\nJune:\n  Progress: 94.06\n  Expenditure: 242.42\n  Original cost: 255.9\n  Revised cost: 255.9\n  Revised DoC: 2025-12-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.114\n\nJuly:\n  Progress: 94.06\n  Expenditure: 239.96\n  Original cost: 255.9\n  Revised cost: 255.9\n  Revised DoC: 2025-12-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.106\n"
+    },
+    {
+      "canonicalId": "P01134",
+      "pmgId": null,
+      "projectCode": "618406",
+      "legacyOcmsCode": "N24000868",
+      "projectName": "Up-gradation to 4-lane with Paved Shoulder of Jammu-Akhnoor road section of NH- 144A from Ganesh Vihar Km 6.000 to Khati Chowk Km 26.350 in UT of Jammu and Kashmir on EPC basis Pkg-3A",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Up-gradation to 4-lane with Paved Shoulder of Jammu-Akhnoor road section of NH- 144A from Ganesh Vihar Km 6.000 to Khati Chowk Km 26.350 in UT of Jammu and Kashmir on EPC basis Pkg-3A\nCanonical ID: P01134\nPMGID: None\nProject Code: 618406\nLegacy OCMS Code: N24000868\n\nApril:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 322.49\n  Revised cost: 322.49\n  Revised DoC: 2022-05-01\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.113\n\nMay:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 322.49\n  Revised cost: 322.49\n  Revised DoC: 2022-05-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.112\n\nJune:\n  Progress: 92.21\n  Expenditure: 388.64\n  Original cost: 322.49\n  Revised cost: 322.49\n  Revised DoC: 2026-11-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.114\n\nJuly:\n  Progress: 92.5\n  Expenditure: 398.19\n  Original cost: 322.49\n  Revised cost: 322.49\n  Revised DoC: 2026-11-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.106\n"
+    },
+    {
+      "canonicalId": "P00921",
+      "pmgId": null,
+      "projectCode": "618441",
+      "legacyOcmsCode": "N24000320",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 501.800 11.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-I Road Works",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 501.800 11.000 Km, under SARDP- NE under EPC Mode in the state of Assam Pkg-I Road Works\nCanonical ID: P00921\nPMGID: None\nProject Code: 618441\nLegacy OCMS Code: N24000320\n\nApril:\n  Progress: 0.0\n  Expenditure: 72.13\n  Original cost: 467.79\n  Revised cost: 476.5\n  Revised DoC: None\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.101\n\nMay:\n  Progress: 0.0\n  Expenditure: 72.13\n  Original cost: 467.79\n  Revised cost: 476.5\n  Revised DoC: None\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.100\n\nJune:\n  Progress: 87.33\n  Expenditure: 0.0\n  Original cost: 467.79\n  Revised cost: 476.5\n  Revised DoC: 2026-07-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.103\n\nJuly:\n  Progress: 87.33\n  Expenditure: 97.88\n  Original cost: 467.79\n  Revised cost: 476.5\n  Revised DoC: 2026-10-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.96\n"
+    },
+    {
+      "canonicalId": "P00309",
+      "pmgId": "160",
+      "projectCode": "400426",
+      "legacyOcmsCode": null,
+      "projectName": "Expansion of Malanjkhand Copper Project",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Expansion of Malanjkhand Copper Project\nCanonical ID: P00309\nPMGID: 160\nProject Code: 400426\nLegacy OCMS Code: None\n\nApril:\n  Progress: 84.87\n  Expenditure: 965.07\n  Original cost: 185.0\n  Revised cost: 380.0\n  Revised DoC: 2029-03-01\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.70\n\nMay:\n  Progress: 23.5\n  Expenditure: 979.15\n  Original cost: 185.0\n  Revised cost: 380.0\n  Revised DoC: 2029-03-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.68\n\nJune:\n  Progress: 26.0\n  Expenditure: 100.0\n  Original cost: 185.0\n  Revised cost: 380.0\n  Revised DoC: 2029-03-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.73\n\nJuly:\n  Progress: 28.0\n  Expenditure: 101.0\n  Original cost: 185.0\n  Revised cost: 380.0\n  Revised DoC: 2029-03-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.69\n"
+    },
+    {
+      "canonicalId": "P01192",
+      "pmgId": "10191",
+      "projectCode": "618149",
+      "legacyOcmsCode": null,
+      "projectName": "Widening to two lane with paved shoulders from Km 0.00 to 102.310 Design Chainage of NH-548B Murrum-Maharashtra Border in the State of Karnataka",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Widening to two lane with paved shoulders from Km 0.00 to 102.310 Design Chainage of NH-548B Murrum-Maharashtra Border in the State of Karnataka\nCanonical ID: P01192\nPMGID: 10191\nProject Code: 618149\nLegacy OCMS Code: None\n\nApril:\n  Progress: 0.0\n  Expenditure: 248.13\n  Original cost: 957.09\n  Revised cost: 957.09\n  Revised DoC: 2027-01-01\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.116\n\nMay:\n  Progress: 60.21\n  Expenditure: 248.81\n  Original cost: 957.09\n  Revised cost: 957.09\n  Revised DoC: 2027-01-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.116\n\nJune:\n  Progress: 60.21\n  Expenditure: 288.15\n  Original cost: 957.09\n  Revised cost: 957.09\n  Revised DoC: 2027-01-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.118\n\nJuly:\n  Progress: 60.21\n  Expenditure: 288.23\n  Original cost: 957.09\n  Revised cost: 957.09\n  Revised DoC: 2027-01-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.110\n"
+    },
+    {
+      "canonicalId": "P00920",
+      "pmgId": null,
+      "projectCode": "618440",
+      "legacyOcmsCode": "N24000320",
+      "projectName": "Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 534.800, under SARDP- NE on EPC Mode in the state of Assam Pkg- IV Structures & Toll Plaza",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Construction of Balance Work of 4-Laning of the Section from Jhanji to Demow of NH- 37 Old from Km 490.800 to Km 534.800, under SARDP- NE on EPC Mode in the state of Assam Pkg- IV Structures & Toll Plaza\nCanonical ID: P00920\nPMGID: None\nProject Code: 618440\nLegacy OCMS Code: N24000320\n\nApril:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 187.09\n  Revised cost: 100.22\n  Revised DoC: None\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.100\n\nMay:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 187.09\n  Revised cost: 100.22\n  Revised DoC: None\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.100\n\nJune:\n  Progress: 58.19\n  Expenditure: 0.0\n  Original cost: 187.09\n  Revised cost: 100.22\n  Revised DoC: 2026-07-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.103\n\nJuly:\n  Progress: 58.19\n  Expenditure: 16.71\n  Original cost: 187.09\n  Revised cost: 100.22\n  Revised DoC: 2026-10-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.96\n"
+    },
+    {
+      "canonicalId": "P00525",
+      "pmgId": "1204",
+      "projectCode": "400298",
+      "legacyOcmsCode": "N22000286",
+      "projectName": "Nadikude-Srikalahasti 308.7 km",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Nadikude-Srikalahasti 308.7 km\nCanonical ID: P00525\nPMGID: 1204\nProject Code: 400298\nLegacy OCMS Code: N22000286\n\nApril:\n  Progress: 55.01\n  Expenditure: 306.0\n  Original cost: 231.0\n  Revised cost: 593.0\n  Revised DoC: 2028-03-01\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.80\n\nMay:\n  Progress: 55.02\n  Expenditure: 311.0\n  Original cost: 231.0\n  Revised cost: 593.0\n  Revised DoC: 2028-03-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.79\n\nJune:\n  Progress: 55.02\n  Expenditure: 311.0\n  Original cost: 231.0\n  Revised cost: 593.0\n  Revised DoC: 2028-03-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.84\n\nJuly:\n  Progress: 2.0\n  Expenditure: 253.0\n  Original cost: 231.0\n  Revised cost: 590.0\n  Revised DoC: 2028-03-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.80\n"
+    },
+    {
+      "canonicalId": "P01398",
+      "pmgId": null,
+      "projectCode": "619008",
+      "legacyOcmsCode": null,
+      "projectName": "Rehabilitation and Up gradation of Charthana Jintur Section of NH 752 I Km 25100 to 47100 to 2 Lane with Paved Shoulder configuration Flexible Pavement in the state of Maharashtra on EPC mode. Reg- Resubmission of Annual Plan Estimate.",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Rehabilitation and Up gradation of Charthana Jintur Section of NH 752 I Km 25100 to 47100 to 2 Lane with Paved Shoulder configuration Flexible Pavement in the state of Maharashtra on EPC mode. Reg- Resubmission of Annual Plan Estimate.\nCanonical ID: P01398\nPMGID: None\nProject Code: 619008\nLegacy OCMS Code: None\n\nApril:\n  Progress: 0.0\n  Expenditure: 0.0\n  Original cost: 157.69\n  Revised cost: 157.69\n  Revised DoC: 2026-07-01\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.128\n\nMay:\n  Progress: 51.0\n  Expenditure: 0.0\n  Original cost: 157.69\n  Revised cost: 157.69\n  Revised DoC: 2026-07-01\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.128\n\nJune:\n  Progress: 51.0\n  Expenditure: 0.01\n  Original cost: 157.69\n  Revised cost: 157.69\n  Revised DoC: 2026-07-01\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.128\n\nJuly:\n  Progress: 51.0\n  Expenditure: 0.01\n  Original cost: 157.69\n  Revised cost: 157.69\n  Revised DoC: 2026-07-01\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.121\n"
+    },
+    {
+      "canonicalId": "P00630",
+      "pmgId": null,
+      "projectCode": "617364",
+      "legacyOcmsCode": null,
+      "projectName": "Central Railway - Double chord line between Nilaje and Kopar 4.495 km PB34/CR/2023-24",
+      "monthsPresent": [
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07"
+      ],
+      "text": "Project: Central Railway - Double chord line between Nilaje and Kopar 4.495 km PB34/CR/2023-24\nCanonical ID: P00630\nPMGID: None\nProject Code: 617364\nLegacy OCMS Code: None\n\nApril:\n  Progress: 24.0\n  Expenditure: 24.04\n  Original cost: 338.33\n  Revised cost: 205.0\n  Revised DoC: None\n  Source: 486th Flash Report on Central Sector Infrastructure Projects (April 2026) p.85\n\nMay:\n  Progress: 24.0\n  Expenditure: 29.33\n  Original cost: 338.33\n  Revised cost: 205.0\n  Revised DoC: None\n  Source: 487th Flash Report on Central Sector Infrastructure Projects (May 2026) p.84\n\nJune:\n  Progress: 60.0\n  Expenditure: 55.83\n  Original cost: 338.33\n  Revised cost: 205.0\n  Revised DoC: None\n  Source: 488th Flash Report on Central Sector Infrastructure Projects (June 2026) p.89\n\nJuly:\n  Progress: 15.0\n  Expenditure: 57.54\n  Original cost: 338.33\n  Revised cost: 205.0\n  Revised DoC: None\n  Source: 489th Flash Report on Central Sector Infrastructure Projects (July 2026) p.84\n"
+    }
+  ],
+  "extractSummaries": [
+    {
+      "reportMonth": "2026-04",
+      "sourceReport": "486th Flash Report on Central Sector Infrastructure Projects (April 2026)",
+      "recordCount": 1981,
+      "pageCount": 108,
+      "pages": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "skipped": {
+        "headerRows": 108,
+        "sectionRows": 48,
+        "totalRows": 31,
+        "unparsedProjectRows": 0,
+        "emptyOrShortRows": 0
+      }
+    },
+    {
+      "reportMonth": "2026-05",
+      "sourceReport": "487th Flash Report on Central Sector Infrastructure Projects (May 2026)",
+      "recordCount": 1987,
+      "pageCount": 109,
+      "pages": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "skipped": {
+        "headerRows": 109,
+        "sectionRows": 48,
+        "totalRows": 31,
+        "unparsedProjectRows": 0,
+        "emptyOrShortRows": 0
+      }
+    },
+    {
+      "reportMonth": "2026-06",
+      "sourceReport": "488th Flash Report on Central Sector Infrastructure Projects (June 2026)",
+      "recordCount": 1847,
+      "pageCount": 101,
+      "pages": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ],
+      "skipped": {
+        "headerRows": 101,
+        "sectionRows": 48,
+        "totalRows": 31,
+        "unparsedProjectRows": 0,
+        "emptyOrShortRows": 0
+      }
+    },
+    {
+      "reportMonth": "2026-07",
+      "sourceReport": "489th Flash Report on Central Sector Infrastructure Projects (July 2026)",
+      "recordCount": 1775,
+      "pageCount": 98,
+      "pages": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152
+      ],
+      "skipped": {
+        "headerRows": 98,
+        "sectionRows": 48,
+        "totalRows": 31,
+        "unparsedProjectRows": 0,
+        "emptyOrShortRows": 0
+      }
+    }
+  ]
+}
