@@ -1,0 +1,356 @@
+PAIMANA progress trajectory features
+========================================
+Projects: 2077
+Trajectory counts: {'stable': 1394, 'insufficient_data': 257, 'decelerating': 274, 'accelerating': 152}
+Units: {'physicalProgress': 'percent', 'progressDelta': 'percentage_points', 'monthlyProgressVelocity': 'percentage_points_per_month', 'recentProgressVelocity': 'percentage_points_per_month'}
+
+Known example — Kadapa Airport (612786)
+----------------------------------------
+Project: Construction of New Domestic Terminal Building Building and miscellaneous works including maintenance, operations and AICMC at Kadapa Airport
+Canonical ID: P00001
+PMGID: None
+Project Code: 612786
+Progress by month:
+  2026-04: 65.0
+  2026-05: 70.0
+  2026-06: 75.0
+  2026-07: 80.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=5.0, monthly velocity=+5 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=5.0, monthly velocity=+5 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=5.0, monthly velocity=+5 pp/month
+recentProgressVelocity: +5 percentage points/month
+trajectory: stable
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Accelerating
+----------------------------------------
+Project: Construction of Terminal Building & Associated works at Leh Airport, Ladakh
+Canonical ID: P00015
+PMGID: 4665
+Project Code: 400010
+Progress by month:
+  2026-04: 78.9
+  2026-05: 79.2
+  2026-06: 83.4
+  2026-07: 88.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.3, monthly velocity=+0.3 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=4.2, monthly velocity=+4.2 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=4.6, monthly velocity=+4.6 pp/month
+recentProgressVelocity: +3.033 percentage points/month
+trajectory: accelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: KONAR EXPANSION OCP
+Canonical ID: P00044
+PMGID: 4077
+Project Code: 400073
+Progress by month:
+  2026-04: 53.47
+  2026-05: 46.25
+  2026-06: 50.78
+  2026-07: 50.78
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=-7.22, monthly velocity=-7.22 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=4.53, monthly velocity=+4.53 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: -0.8967 percentage points/month
+trajectory: accelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: KOTRE BASANTPUR PACHMO OCP
+Canonical ID: P00048
+PMGID: 3183
+Project Code: 400139
+Progress by month:
+  2026-04: 47.95
+  2026-05: 45.52
+  2026-06: 45.78
+  2026-07: 45.78
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=-2.43, monthly velocity=-2.43 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.26, monthly velocity=+0.26 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: -0.7233 percentage points/month
+trajectory: accelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Decelerating
+----------------------------------------
+Project: Development of additional RESA on either end on Runway 10-28 at Calicut Airport. Construction of embankment with slope protection, drainage system and associated works for additional RESA on either end on Runway 10-28
+Canonical ID: P00014
+PMGID: None
+Project Code: 612789
+Progress by month:
+  2026-04: 59.0
+  2026-05: 62.5
+  2026-06: 64.5
+  2026-07: 65.8
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=3.5, monthly velocity=+3.5 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=2.0, monthly velocity=+2 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=1.3, monthly velocity=+1.3 pp/month
+recentProgressVelocity: +2.267 percentage points/month
+trajectory: decelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: Development of New Civil Enclave at Bagdogra Airport
+Canonical ID: P00025
+PMGID: 9920
+Project Code: 611495
+Progress by month:
+  2026-04: 34.6
+  2026-05: 36.93
+  2026-06: 39.68
+  2026-07: 27.9
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=2.33, monthly velocity=+2.33 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=2.75, monthly velocity=+2.75 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=-11.78, monthly velocity=-11.78 pp/month
+recentProgressVelocity: -2.233 percentage points/month
+trajectory: decelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: Re-Construction of Rigid portions of Secondary Runway, K and A Taxiway and Strengthening of C Taxiway at NSCBI Airport Kolkata.
+Canonical ID: P00026
+PMGID: None
+Project Code: 612791
+Progress by month:
+  2026-04: 64.5
+  2026-05: 70.0
+  2026-06: 71.4
+  2026-07: 73.5
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=5.5, monthly velocity=+5.5 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=1.4, monthly velocity=+1.4 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=2.1, monthly velocity=+2.1 pp/month
+recentProgressVelocity: +3 percentage points/month
+trajectory: decelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Zero progress
+----------------------------------------
+Project: PORDA CHIMTAPANI OCP [10 MTY]
+Canonical ID: P00029
+PMGID: 3122
+Project Code: 400144
+Progress by month:
+  2026-04: 11.81
+  2026-05: 11.81
+  2026-06: 11.81
+  2026-07: 11.81
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: +0 percentage points/month
+trajectory: stable
+flags: {'zeroProgress': True, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: BAROUD OC EXPANSION [3.0-10.0M
+Canonical ID: P00030
+PMGID: 3107
+Project Code: 400149
+Progress by month:
+  2026-04: 55.95
+  2026-05: 55.95
+  2026-06: 55.95
+  2026-07: 55.95
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: +0 percentage points/month
+trajectory: stable
+flags: {'zeroProgress': True, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: GEVRA OC [70 MTY]
+Canonical ID: P00032
+PMGID: 192
+Project Code: 400424
+Progress by month:
+  2026-04: 78.48
+  2026-05: 78.48
+  2026-06: 78.48
+  2026-07: 78.48
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: +0 percentage points/month
+trajectory: stable
+flags: {'zeroProgress': True, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Large progress jumps
+----------------------------------------
+Project: 600 MW Khavda Solar Power Project
+Canonical ID: P00145
+PMGID: 10775
+Project Code: 617730
+Progress by month:
+  2026-04: 40.0
+  2026-05: 60.0
+  2026-06: 60.0
+  2026-07: 62.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=20.0, monthly velocity=+20 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=2.0, monthly velocity=+2 pp/month
+recentProgressVelocity: +7.333 percentage points/month
+trajectory: decelerating
+flags: {'zeroProgress': False, 'largeJump': True, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: Integrated Command control Center [ICCC] - Construction and Development of Integrated Command Control Center with Security, Surveillance, ITMS, Connecting Port, Ship Service, Smart Solid Waste Management, Smart Public Transport System
+Canonical ID: P00258
+PMGID: None
+Project Code: 707229
+Progress by month:
+  2026-04: 70.0
+  2026-05: 97.0
+  2026-06: 97.0
+  2026-07: 97.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=27.0, monthly velocity=+27 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: +9 percentage points/month
+trajectory: decelerating
+flags: {'zeroProgress': False, 'largeJump': True, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: New Suburba Station Development Project
+Canonical ID: P00280
+PMGID: None
+Project Code: 701745
+Progress by month:
+  2026-04: 6.0
+  2026-05: 6.0
+  2026-06: 6.0
+  2026-07: 48.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=42.0, monthly velocity=+42 pp/month
+recentProgressVelocity: +14 percentage points/month
+trajectory: accelerating
+flags: {'zeroProgress': False, 'largeJump': True, 'hasGap': False, 'insufficientData': False, 'at100': False, 'duplicateMonthDropped': False}
+
+Missing / gapped observations
+----------------------------------------
+Project: Nabinagar Super Thermal Power Project, Stage-II [3x800 MW]
+Canonical ID: P00163
+PMGID: None
+Project Code: 619051
+Progress by month:
+  2026-04: 10.17
+  2026-06: 13.65
+  2026-07: 15.0
+Intervals:
+  2026-04 → 2026-06 (elapsed 2 month(s)): delta=3.48, monthly velocity=unavailable (not a consecutive month)
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=1.35, monthly velocity=+1.35 pp/month
+recentProgressVelocity: +1.35 percentage points/month
+trajectory: insufficient_data
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': True, 'insufficientData': True, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: Darlipali Super Thermal Power Project, Stage-II [1x800 MW]
+Canonical ID: P00179
+PMGID: None
+Project Code: 619056
+Progress by month:
+  2026-04: 1.95
+  2026-06: 2.45
+  2026-07: 2.7
+Intervals:
+  2026-04 → 2026-06 (elapsed 2 month(s)): delta=0.5, monthly velocity=unavailable (not a consecutive month)
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.25, monthly velocity=+0.25 pp/month
+recentProgressVelocity: +0.25 percentage points/month
+trajectory: insufficient_data
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': True, 'insufficientData': True, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: Transmission System for Evacuation of power from Potential RE Zone in Khavda Area of Gujarat under phase IV 7GW-Part E4
+Canonical ID: P00220
+PMGID: None
+Project Code: 611966
+Progress by month:
+  2026-04: 94.8
+  2026-05: 99.6
+  2026-06: 100.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=4.8, monthly velocity=+4.8 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.4, monthly velocity=+0.4 pp/month
+recentProgressVelocity: +2.6 percentage points/month
+trajectory: decelerating
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': True, 'duplicateMonthDropped': False}
+
+Insufficient data
+----------------------------------------
+Project: Goa Airport Terminal Building Extension Project
+Canonical ID: P00008
+PMGID: 4831
+Project Code: 701105
+Progress by month:
+  2026-04: 100.0
+  2026-05: 100.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: +0 percentage points/month
+trajectory: insufficient_data
+flags: {'zeroProgress': True, 'largeJump': False, 'hasGap': False, 'insufficientData': True, 'at100': True, 'duplicateMonthDropped': False}
+
+Project: 2.5 MTPA PATHERDIH NLW WASHERY
+Canonical ID: P00060
+PMGID: 4836
+Project Code: 611017
+Progress by month:
+  2026-04: 51.81
+Intervals:
+recentProgressVelocity: null
+trajectory: insufficient_data
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': True, 'at100': False, 'duplicateMonthDropped': False}
+
+Project: BASUNDHARA WEST EXTENSION OPEN
+Canonical ID: P00118
+PMGID: 7760
+Project Code: 615193
+Progress by month:
+  2026-04: 67.58
+Intervals:
+recentProgressVelocity: null
+trajectory: insufficient_data
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': True, 'at100': False, 'duplicateMonthDropped': False}
+
+Reached 100% progress
+----------------------------------------
+Project: Construction of New Passenger Terminal Building for Domestic Operations at Jodhpur Airport.
+Canonical ID: P00019
+PMGID: None
+Project Code: 701127
+Progress by month:
+  2026-04: 97.35
+  2026-05: 97.85
+  2026-06: 100.0
+  2026-07: 100.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.5, monthly velocity=+0.5 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=2.15, monthly velocity=+2.15 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+recentProgressVelocity: +0.8833 percentage points/month
+trajectory: stable
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': True, 'duplicateMonthDropped': False}
+
+Project: Phase 1B - Construction of Academic Block, Hostel, Residential Tower, Directors Residence and External Development works at National Institute of Technology, Delhi Campus on Engineering, Procurement and Construction basis
+Canonical ID: P00319
+PMGID: None
+Project Code: 612851
+Progress by month:
+  2026-04: 99.72
+  2026-05: 99.9
+  2026-06: 99.9
+  2026-07: 100.0
+Intervals:
+  2026-04 → 2026-05 (elapsed 1 month(s)): delta=0.18, monthly velocity=+0.18 pp/month
+  2026-05 → 2026-06 (elapsed 1 month(s)): delta=0.0, monthly velocity=+0 pp/month
+  2026-06 → 2026-07 (elapsed 1 month(s)): delta=0.1, monthly velocity=+0.1 pp/month
+recentProgressVelocity: +0.0933 percentage points/month
+trajectory: stable
+flags: {'zeroProgress': False, 'largeJump': False, 'hasGap': False, 'insufficientData': False, 'at100': True, 'duplicateMonthDropped': False}
