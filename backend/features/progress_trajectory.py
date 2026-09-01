@@ -202,3 +202,5 @@ def build_progress_features(observations: list[dict[str, Any]]) -> dict[str, Any
         "trajectoryCounts": dict(counts),
         "projects": projects,
     }
+
+
