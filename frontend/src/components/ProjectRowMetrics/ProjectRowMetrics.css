@@ -1,0 +1,28 @@
+.row-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row-metric__value {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.row-metric__label {
+  color: var(--color-outline);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+.metric-value--error {
+  color: var(--color-error);
+}

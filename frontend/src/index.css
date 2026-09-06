@@ -1,5 +1,6 @@
 /* ============================
-   PAIMANA AI — Global Design Tokens & Base Styles
+   TRACE — Infrastructure Intelligence
+   Global Design Tokens & Base Styles
    ============================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -64,6 +65,13 @@
 
   --color-warning:                    #b07b1a;
   --color-success:                    #2e7d32;
+
+  /* 30/70 dark-light anchors */
+  --color-dark:                       #14161a;
+  --color-dark-soft:                  #1c1f25;
+  --color-on-dark:                    #ffffff;
+  --color-on-dark-muted:              rgba(255, 255, 255, 0.62);
+  --color-dark-line:                  rgba(255, 255, 255, 0.1);
 
   /* Typography */
   --font-sans: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
@@ -173,17 +181,17 @@ button {
 
 .font-label-caps {
   font-family: var(--font-mono);
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.15em;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
   font-weight: 500;
   text-transform: uppercase;
 }
 
 .font-metadata {
   font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 14px;
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 400;
 }
 

@@ -97,15 +97,19 @@ const ContextSchema = z.object({
     /**
   
     * Recent observed progress velocity.
-    * Can be zero or negative depending on the project's observed trajectory.
+    * Can be zero or negative depending on the project's observed trajectory,
+    * or null when the history does not support a velocity estimate.
       */
-    observedVelocity: z.number(),
+    observedVelocity: z.number()
+        .nullable(),
 
     /**
   
     * Required progress velocity to meet the deadline.
+    * Null when the project is overdue (past its completion deadline).
       */
-    requiredVelocity: z.number(),
+    requiredVelocity: z.number()
+        .nullable(),
 
     /** Current schedule status category */
     scheduleState: z.enum([

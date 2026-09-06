@@ -4,9 +4,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <div className="footer__brand">PAIMANA AI</div>
+        <div className="footer__brand">
+          <span className="footer__brand-word">TRACE</span>
+          <span className="footer__brand-tag">Infrastructure Intelligence</span>
+        </div>
         <div className="footer__copy">
-          © 2024 PAIMANA AI. SOVEREIGN INFRASTRUCTURE INTELLIGENCE.
+          © 2026 TRACE. INFRASTRUCTURE DECISION-SUPPORT · ANALYZES PAIMANA MONITORING DATA.
         </div>
         <div className="footer__links">
           <a href="#" className="footer__link">Privacy Protocol</a>

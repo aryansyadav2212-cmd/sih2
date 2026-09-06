@@ -1,6 +1,7 @@
 
 import { Router } from "express";
 import intelligenceRouter from "./intelligence";
+import projectsRouter from "./projects";
 const router = Router()
 
 router.use((req, res, next) => {
@@ -8,5 +9,6 @@ router.use((req, res, next) => {
     next();
 });
 router.use("/projects", intelligenceRouter);
+router.use("/projects", projectsRouter);
 
 export default router

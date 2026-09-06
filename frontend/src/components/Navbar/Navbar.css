@@ -42,16 +42,14 @@
 .navbar__left {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
 }
 
 .navbar__brand {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
   transition: opacity var(--transition-fast);
 }
 
@@ -61,6 +59,34 @@
 
 .navbar__brand:hover {
   opacity: 0.75;
+}
+
+.navbar__brand-word {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.navbar--transparent .navbar__brand-word {
+  color: var(--color-on-primary);
+}
+
+.navbar__brand-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-outline);
+  white-space: nowrap;
+}
+
+.navbar--transparent .navbar__brand-tag {
+  color: rgba(255,255,255,0.55);
 }
 
 .navbar__links {

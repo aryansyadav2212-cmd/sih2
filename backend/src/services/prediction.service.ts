@@ -134,26 +134,34 @@ export async function getProjectPrediction(
                 ? (payload as { detail?: unknown }).detail
                 : undefined;
 
-        if (
-            response.status === 422 &&
-            detail &&
-            typeof detail === "object" &&
-            "code" in detail &&
-            (detail as { code?: unknown }).code ===
-            "MISSING_COMPLETION_DEADLINE"
-        ) {
-            const message =
-                "message" in detail &&
-                    typeof (detail as { message?: unknown }).message ===
-                    "string"
-                    ? (detail as { message: string }).message
-                    : "Prediction unavailable";
+        if (response.status === 422) {
+            // Unprocessable entity: the ML service intentionally cannot
+            // construct a prediction for this project/month. Preserve the
+            // structured code when present so the API can tell "missing
+            // data" apart from "invalid request".
+            let code = "INSUFFICIENT_DATA";
+            let message = "Prediction unavailable";
 
-            throw new MLServiceError(
-                message,
-                422,
-                "MISSING_COMPLETION_DEADLINE"
-            );
+            if (
+                detail &&
+                typeof detail === "object" &&
+                "code" in detail &&
+                typeof (detail as { code?: unknown }).code ===
+                    "string"
+            ) {
+                code = (detail as { code: string }).code;
+                message =
+                    "message" in detail &&
+                    typeof (
+                        detail as { message?: unknown }
+                    ).message === "string"
+                        ? (detail as { message: string }).message
+                        : message;
+            } else if (typeof detail === "string") {
+                message = detail;
+            }
+
+            throw new MLServiceError(message, 422, code);
         }
 
         switch (response.status) {

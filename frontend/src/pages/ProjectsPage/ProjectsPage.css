@@ -4,14 +4,66 @@
 
 .projects-main {
   flex: 1;
-  padding-top: 100px;
   padding-bottom: 128px;
+  width: 100%;
+}
+
+/* Centered content column for light sections on the projects page */
+.projects-main .portfolio-strip,
+.projects-main .controls,
+.projects-main .filter-bar-wrap,
+.projects-main .table-wrap,
+.projects-main .filter-bar--more {
+  max-width: var(--spacing-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* ── Dark intro band (~30% dark anchor) ── */
+.projects-band {
+  width: 100%;
+  background: var(--color-dark);
+  color: #ffffff;
+  padding: 136px 0 64px;
+  margin-bottom: 0;
+}
+
+.projects-band__inner {
   max-width: var(--spacing-container-max);
   margin: 0 auto;
   width: 100%;
 }
 
-/* ── Header ── */
+.projects-band__kicker {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.projects-band__title {
+  color: #ffffff;
+  margin-bottom: 16px;
+  font-size: clamp(40px, 8vw, 72px);
+  text-transform: uppercase;
+}
+
+.projects-band__sub {
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 24px;
+  max-width: 640px;
+}
+
+.projects-band__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+
+/* Old header classes (no longer used but kept for safety) */
 .projects-header {
   margin-bottom: 48px;
 }
@@ -40,10 +92,10 @@
 .portfolio-strip {
   display: flex;
   flex-wrap: wrap;
-  border-top: 1px solid rgba(198, 198, 203, 0.5);
+  border-top: none;
   border-bottom: 1px solid rgba(198, 198, 203, 0.5);
-  padding: 24px 0;
-  margin-bottom: 48px;
+  padding: 40px 0;
+  margin-bottom: 0;
   gap: 32px;
 }
 
@@ -93,15 +145,36 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-bottom: 32px;
+  margin: 40px 0 32px;
 }
 
 @media (min-width: 1024px) {
   .controls {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
   }
+}
+
+.controls__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.controls__group--search {
+  flex: 1;
+}
+
+.controls__group--action {
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.controls__group-label {
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
 }
 
 .controls__search-wrap {
@@ -111,7 +184,7 @@
 
 @media (min-width: 1024px) {
   .controls__search-wrap {
-    width: 33%;
+    max-width: 560px;
   }
 }
 
@@ -170,6 +243,80 @@
 
 .filter-btn .material-symbols-outlined {
   font-size: 15px;
+}
+
+.filter-btn--active {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.filter-btn--active:hover {
+  color: var(--color-surface);
+}
+
+.filter-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Filter Bar ── */
+.filter-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filter-bar__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-bar__hint {
+  color: var(--color-outline);
+  text-transform: uppercase;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-outline-variant);
+  padding: 6px 10px;
+}
+
+.filter-select__label {
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.filter-select select {
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-primary);
+  outline: none;
+  cursor: pointer;
+  max-width: 220px;
+}
+
+.filter-select select:focus {
+  outline: 1px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 /* ── Data Table ── */
@@ -232,6 +379,48 @@
 .schedule--error   { color: var(--color-error); }
 .schedule--warning { color: var(--color-warning); }
 .schedule--ok      { color: var(--color-success); }
+.schedule--neutral { color: var(--color-on-surface-variant); }
+
+/* Risk Level */
+.risk-level {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.risk-level--high   { color: var(--color-error); }
+.risk-level--medium { color: var(--color-warning); }
+.risk-level--low    { color: var(--color-success); }
+
+/* Project Stage */
+.stage-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+}
+
+.stage-badge--closure {
+  color: var(--color-success);
+  background: rgba(46, 125, 50, 0.08);
+}
+
+.high-risk-tag {
+  display: inline-block;
+  margin-left: 8px;
+  vertical-align: middle;
+  background: var(--color-error);
+  color: var(--color-surface);
+  padding: 1px 6px;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.controls-empty-action {
+  margin-left: 16px;
+}
 
 /* Risk Dot */
 .risk-dot {
@@ -261,8 +450,13 @@
   letter-spacing: 0.1em;
 }
 
+.pagination__current {
+  color: var(--color-on-surface-variant);
+}
+
 .pagination__btns {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -285,4 +479,70 @@
 .pagination__btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* ── Loading / Error / Empty ── */
+.controls-loading {
+  padding: 24px 0;
+  color: var(--color-on-surface-variant);
+}
+
+.controls-error {
+  padding: 24px 0;
+  color: var(--color-error);
+}
+
+/* ── Deadline Revision Outlook cell ── */
+.outlook-cell {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.outlook-cell__pct {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-primary);
+}
+
+.outlook-cell .risk-level {
+  font-size: 10px;
+}
+
+/* ── Sort controls ── */
+.filter-select--sort select {
+  max-width: 260px;
+}
+
+/* ── More Filters disclosure ── */
+.more-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-outline-variant);
+  padding: 6px 10px;
+  color: var(--color-on-surface-variant);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.more-filters:hover {
+  background: var(--color-surface-container-low);
+  color: var(--color-primary);
+}
+
+.more-filters--active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.more-filters .material-symbols-outlined {
+  font-size: 15px;
+}
+
+.filter-bar--more {
+  margin-top: 4px;
+  margin-bottom: 8px;
 }

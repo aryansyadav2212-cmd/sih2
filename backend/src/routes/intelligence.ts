@@ -9,6 +9,7 @@
 import { Router } from "express";
 import { z } from "zod";
 import { getProjectIntelligence } from "../services/intelligence.service";
+import { LLMServiceError } from "../services/llm.service";
 
 // ============================================================================
 // Router Configuration
@@ -165,19 +166,44 @@ router.post("/:projectCode/intelligence", async (req, res) => {
             error instanceof Error &&
             error.name === "MLServiceError" &&
             "status" in error &&
-            "code" in error &&
-            (error as unknown as { status?: unknown }).status === 422 &&
-            (error as unknown as { code?: unknown }).code ===
-                "MISSING_COMPLETION_DEADLINE"
+            (error as unknown as { status?: unknown }).status === 422
         ) {
+            const code =
+                typeof (error as unknown as { code?: unknown }).code ===
+                    "string"
+                    ? (error as unknown as { code: string }).code
+                    : "INSUFFICIENT_DATA";
+
+            if (code === "MISSING_COMPLETION_DEADLINE") {
+                return res.status(422).json({
+                    error: "Prediction unavailable",
+                    code,
+                    message: error.message,
+                });
+            }
+
             return res.status(422).json({
                 error: "Prediction unavailable",
-                code: "MISSING_COMPLETION_DEADLINE",
+                code,
                 message: error.message,
             });
         }
 
-        // 4.3: ML service unavailable (503)
+        // 4.3: Recommendation generation failed (prediction succeeded but
+        // the LLM recommendation step failed). Keep the failure category
+        // distinct from ML/API failures.
+        if (error instanceof LLMServiceError) {
+            return res.status(502).json({
+                error: "Recommendation generation is unavailable",
+                code: "RECOMMENDATION_UNAVAILABLE",
+                message:
+                    error.code === "RATE_LIMIT_EXCEEDED"
+                        ? "Recommendation quota or rate limit reached. Try again later."
+                        : "The recommendation service could not be reached.",
+            });
+        }
+
+        // 4.4: ML service unavailable (503)
         if (
             error instanceof Error &&
             error.message === "ML service is unavailable"
@@ -188,7 +214,7 @@ router.post("/:projectCode/intelligence", async (req, res) => {
             });
         }
 
-        // 4.4: ML service response validation failed (500)
+        // 4.5: ML service response validation failed (500)
         if (
             error instanceof Error &&
             error.message === "ML service returned an invalid response"
@@ -199,7 +225,7 @@ router.post("/:projectCode/intelligence", async (req, res) => {
             });
         }
 
-        // 4.5: Rate limiting (429)
+        // 4.6: Rate limiting (429)
         if (
             error instanceof Error &&
             error.message === "ML service rate limit exceeded"
@@ -210,7 +236,7 @@ router.post("/:projectCode/intelligence", async (req, res) => {
             });
         }
 
-        // 4.6: Generic internal server error (500)
+        // 4.7: Generic internal server error (500)
         return res.status(500).json({
             error: "Failed to generate project intelligence",
             code: "INTERNAL_SERVER_ERROR",

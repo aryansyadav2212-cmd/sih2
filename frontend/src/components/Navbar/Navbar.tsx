@@ -7,11 +7,11 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { label: 'Platform', to: '/' },
-  { label: 'Intelligence', to: '/#intelligence' },
-  { label: 'National Overview', to: '/#overview' },
-  { label: 'Signals', to: '/#signals' },
-  { label: 'Projects', to: '/projects' },
+  { label: 'Overview', to: '/#overview' },
+  { label: 'Intervention', to: '/projects/intervention' },
+  { label: 'Closure', to: '/projects/closure' },
+  { label: 'Monitor', to: '/projects/monitor' },
+  { label: 'All Projects', to: '/projects' },
 ];
 
 export default function Navbar({ variant = 'solid' }: NavbarProps) {
@@ -28,7 +28,10 @@ export default function Navbar({ variant = 'solid' }: NavbarProps) {
       <div className="navbar__inner">
         {/* Brand + Links */}
         <div className="navbar__left">
-          <Link to="/" className="navbar__brand">PAIMANA AI</Link>
+          <Link to="/" className="navbar__brand">
+            <span className="navbar__brand-word">TRACE</span>
+            <span className="navbar__brand-tag">Infrastructure Intelligence</span>
+          </Link>
           <div className="navbar__links">
             {navLinks.map(link => (
               <Link
@@ -45,7 +48,7 @@ export default function Navbar({ variant = 'solid' }: NavbarProps) {
         {/* Actions */}
         <div className="navbar__actions">
           <button className="navbar__cta">
-            Deploy Intelligence
+            Explore Projects
             <span className="material-symbols-outlined">arrow_forward</span>
           </button>
           <button

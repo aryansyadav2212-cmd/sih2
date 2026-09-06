@@ -83,13 +83,16 @@ const ContextSchema = z.object({
     remainingDays: z.number()
         .int("Remaining days must be an integer"),
 
-    /** Recent observed progress velocity (percentage points per month) */
+    /** Recent observed progress velocity (percentage points per month).
+     * Null when the project history has insufficient data to estimate it;
+     * negative when the project is regressing. */
     observedVelocity: z.number()
-        .nonnegative("Observed velocity cannot be negative"),
+        .nullable(),
 
-    /** Required progress velocity to meet the deadline */
+    /** Required progress velocity to meet the deadline.
+     * Null when the project is overdue (past its completion deadline). */
     requiredVelocity: z.number()
-        .nonnegative("Required velocity cannot be negative"),
+        .nullable(),
 
     /** Current schedule status category */
     scheduleState: z.enum([

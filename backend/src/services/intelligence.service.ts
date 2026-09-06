@@ -72,8 +72,8 @@ export interface ProjectIntelligence {
     /** External evidence retrieved for the project */
     externalEvidence: LLMRequest["externalEvidence"];
 
-    /** LLM-generated recommendation */
-    recommendation: LLMResponse;
+    /** LLM-generated recommendation, or null when the LLM step failed */
+    recommendation: LLMResponse | null;
 }
 
 // ============================================================================
@@ -170,10 +170,22 @@ export async function getProjectIntelligence(
     // ------------------------------------------------------------------------
     // Step 4: Generate LLM Recommendation
     // ------------------------------------------------------------------------
+    //
+    // The recommendation is best-effort. The ML prediction is the source of
+    // truth for risk; if the LLM step fails, return the prediction intact with
+    // a null recommendation instead of failing the whole request. This keeps
+    // the project page usable when the recommendation service is unreachable
+    // or rate limited.
+    let recommendation: LLMResponse | null = null;
 
-    const recommendation = await generateRecommendation(
-        llmRequest
-    );
+    try {
+        recommendation = await generateRecommendation(llmRequest);
+    } catch (error) {
+        console.error(
+            `Recommendation generation failed for ${projectCode}:`,
+            error instanceof Error ? error.message : error
+        );
+    }
 
     // ------------------------------------------------------------------------
     // Step 5: Return Complete Intelligence
@@ -255,7 +267,8 @@ export function summarizeIntelligence(
             "No reasons available",
 
         recommendationSummary:
-            intelligence.recommendation.summary,
+            intelligence.recommendation?.summary ??
+            "Recommendation unavailable",
     };
 }
 
@@ -287,12 +300,19 @@ export function generateIntelligenceReport(
         reasons,
     } = intelligence;
 
+    const recommendation = intelligence.recommendation;
+
     const {
         summary,
         keyReasons,
         recommendedActions,
         verificationNeeded,
-    } = intelligence.recommendation;
+    } = recommendation ?? {
+        summary: "Recommendation unavailable",
+        keyReasons: [],
+        recommendedActions: [],
+        verificationNeeded: [],
+    };
 
     const lines = [
         "=".repeat(80),
@@ -320,8 +340,8 @@ export function generateIntelligenceReport(
         `  Deadline: ${context.deadlineDate}`,
         `  Remaining Days: ${context.remainingDays}`,
         `  Schedule State: ${context.scheduleState}`,
-        `  Observed Velocity: ${context.observedVelocity.toFixed(2)}`,
-        `  Required Velocity: ${context.requiredVelocity.toFixed(2)}`,
+        `  Observed Velocity: ${context.observedVelocity !== null && context.observedVelocity !== undefined ? context.observedVelocity.toFixed(2) : "N/A"}`,
+        `  Required Velocity: ${context.requiredVelocity !== null && context.requiredVelocity !== undefined ? context.requiredVelocity.toFixed(2) : "N/A"}`,
         "",
 
         "-".repeat(80),

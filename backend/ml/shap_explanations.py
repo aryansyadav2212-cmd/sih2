@@ -301,6 +301,20 @@ def build_progress_execution_reason(contribution, feature_values):
             "required to meet the deadline."
         )
 
+    elif (
+        schedule_state == "on_track"
+        and contribution > 0
+        and current_progress is not None
+        and current_progress >= 60
+    ):
+        message = (
+            f"The project is {current_progress:.1f}% complete and "
+            "currently on track against its reported completion "
+            "deadline. Near-complete projects are historically "
+            "associated with a higher rate of reported deadline "
+            "revisions, which the model weights as a signal."
+        )
+
     else:
         return None
 
