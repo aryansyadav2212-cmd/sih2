@@ -1,7 +1,7 @@
 PAIMANA progress trajectory features
 ========================================
 Projects: 2077
-Trajectory counts: {'stable': 1394, 'insufficient_data': 257, 'decelerating': 274, 'accelerating': 152}
+Trajectory counts: {'stable': 1396, 'insufficient_data': 258, 'decelerating': 271, 'accelerating': 152}
 Units: {'physicalProgress': 'percent', 'progressDelta': 'percentage_points', 'monthlyProgressVelocity': 'percentage_points_per_month', 'recentProgressVelocity': 'percentage_points_per_month'}
 
 Known example — Kadapa Airport (612786)

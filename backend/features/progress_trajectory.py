@@ -52,16 +52,21 @@ def interval_features(from_obs: dict[str, Any], to_obs: dict[str, Any]) -> dict[
     raw_delta = _progress_delta(from_progress, to_progress)
     consecutive = elapsed == 1
     already_complete = from_progress is not None and from_progress >= 100
+    velocity_eligible = not (
+        from_progress == 0
+        and raw_delta is not None
+        and raw_delta >= LARGE_JUMP_THRESHOLD
+    )
 
     velocity = None
-    if consecutive and raw_delta is not None:
+    if velocity_eligible and consecutive and raw_delta is not None:
         if already_complete and raw_delta > 0:
             velocity = 0.0
         else:
             velocity = _round(raw_delta)
 
     interval_velocity = None
-    if elapsed and raw_delta is not None:
+    if velocity_eligible and elapsed and raw_delta is not None:
         if already_complete and raw_delta > 0:
             interval_velocity = 0.0
         else:
@@ -75,6 +80,7 @@ def interval_features(from_obs: dict[str, Any], to_obs: dict[str, Any]) -> dict[
         "fromProgress": from_progress,
         "toProgress": to_progress,
         "progressDelta": raw_delta,
+        "velocityEligible": velocity_eligible,
         "monthlyProgressVelocity": velocity,
         "intervalVelocity": interval_velocity,
         "unit": "percentage_points_per_month",

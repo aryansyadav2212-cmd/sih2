@@ -1,16 +1,12 @@
 
 import { Router } from "express";
-import ProjectRouter from './projects'
-import dashboardRouter from './dashboard'
-import aiRouter from './ai'
+import intelligenceRouter from "./intelligence";
 const router = Router()
 
 router.use((req, res, next) => {
     console.log("INDEX ROUTER HIT:", req.method, req.originalUrl);
     next();
 });
-router.use('/projects', ProjectRouter)
-router.use('/dashboard', dashboardRouter)
-router.use('/ai', aiRouter)
+router.use("/projects", intelligenceRouter);
 
 export default router

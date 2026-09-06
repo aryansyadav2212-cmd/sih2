@@ -20,6 +20,7 @@ the features for a prediction month.
 
 from __future__ import annotations
 
+from datetime import datetime
 from typing import Any
 
 from features.progress_trajectory import project_trajectory
@@ -28,6 +29,26 @@ from features.financial_features import (
     financial_features,
     calculate_cost_features,
 )
+
+
+def _are_consecutive_months(
+    month_a: str,
+    month_b: str,
+) -> bool:
+    """
+    Return True if month_b is exactly one calendar month
+    after month_a.
+
+    Both arguments are "YYYY-MM" strings.
+    """
+
+    a = datetime.strptime(month_a, "%Y-%m")
+    b = datetime.strptime(month_b, "%Y-%m")
+
+    year_diff = b.year - a.year
+    month_diff = b.month - a.month
+
+    return (year_diff * 12 + month_diff) == 1
 
 
 def get_project_observations_up_to(
@@ -84,6 +105,26 @@ def build_monthwise_features(
         if len(historical_observations) >= 2
         else None
     )
+
+    # --------------------------------------------------
+    # Consecutive-month guard for financial features
+    #
+    # Month-to-month features (expenditureChange, etc.)
+    # are only meaningful when the previous observation is
+    # exactly the prior calendar month.  If there is a gap
+    # (e.g. April → June), pass None so financial_features
+    # returns insufficient_data.
+    # --------------------------------------------------
+
+    if previous is not None:
+        current_month = current.get("reportMonth", "")
+        previous_month = previous.get("reportMonth", "")
+
+        if not _are_consecutive_months(
+            previous_month,
+            current_month,
+        ):
+            previous = None
 
     # --------------------------------------------------
     # Progress trajectory

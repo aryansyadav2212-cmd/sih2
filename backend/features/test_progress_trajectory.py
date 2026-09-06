@@ -97,10 +97,41 @@ def test_zero_to_ninety_nine_jump():
     result = project_trajectory(rows)
     interval = result["intervals"][0]
     assert interval["progressDelta"] == 99
-    assert interval["monthlyProgressVelocity"] == 99
     assert interval["largeJump"] is True
+    assert interval["velocityEligible"] is False
+    assert interval["monthlyProgressVelocity"] is None
+    assert interval["intervalVelocity"] is None
     assert result["progressByMonth"]["2026-04"] == 0
     assert result["progressByMonth"]["2026-05"] == 99
+
+
+def test_zero_to_twenty_jump_is_not_velocity_eligible():
+    interval = interval_features(_obs("2026-04", 0), _obs("2026-05", 20))
+    assert interval["velocityEligible"] is False
+    assert interval["monthlyProgressVelocity"] is None
+
+
+def test_zero_to_below_threshold_jump_is_velocity_eligible():
+    interval = interval_features(_obs("2026-04", 0), _obs("2026-05", 19.99))
+    assert interval["velocityEligible"] is True
+    assert interval["monthlyProgressVelocity"] == 19.99
+
+
+def test_positive_progress_jump_is_velocity_eligible():
+    interval = interval_features(_obs("2026-04", 40), _obs("2026-05", 60))
+    assert interval["velocityEligible"] is True
+    assert interval["monthlyProgressVelocity"] == 20
+
+
+def test_large_jump_does_not_inflate_recent_velocity():
+    rows = [
+        _obs("2026-04", 0),
+        _obs("2026-05", 99),
+        _obs("2026-06", 99),
+        _obs("2026-07", 99),
+    ]
+    result = project_trajectory(rows)
+    assert result["recentProgressVelocity"] == 0
 
 
 def test_completed_progress_has_no_positive_velocity():
