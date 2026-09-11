@@ -225,6 +225,7 @@ export async function checkMLServiceHealth(): Promise<boolean> {
 
         return response.ok;
     } catch (error) {
+        console.error("ML service health check failed:", error);
         return false;
     }
 }
