@@ -153,10 +153,22 @@ export async function getProjectIntelligence(
     // ------------------------------------------------------------------------
     // Step 2: Find External Evidence
     // ------------------------------------------------------------------------
+    //
+    // Best-effort, like the LLM step below. If Tavily is unreachable or the
+    // API key is not configured, return no evidence instead of failing the
+    // whole intelligence request.
+    let externalEvidence: LLMRequest["externalEvidence"] = [];
 
-    const externalEvidence = await findProjectEvidence(
-        prediction.project
-    );
+    try {
+        externalEvidence = await findProjectEvidence(
+            prediction.project
+        );
+    } catch (error) {
+        console.error(
+            `External evidence retrieval failed for ${projectCode}:`,
+            error instanceof Error ? error.message : error
+        );
+    }
 
     // ------------------------------------------------------------------------
     // Step 3: Build LLM Request

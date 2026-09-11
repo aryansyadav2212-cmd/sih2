@@ -168,6 +168,69 @@ export interface ProjectListResponse {
  */
 export interface ProjectDetailResponse {
   project: ProjectSummary;
+  history: ProjectHistory | null;
+}
+
+/**
+ * One reported monthly observation for a single project, used by the project
+ * detail page to render the observed trajectory and the "what changed"
+ * comparison.
+ */
+export interface ProjectObservationPoint {
+  reportMonth: string;
+  physicalProgress: number | null;
+  cumulativeExpenditure: number | null;
+  originalCost: number | null;
+  revisedCost: number | null;
+  originalDoc: string | null;
+  revisedDoc: string | null;
+  /** Financial progress %: cumulativeExpenditure / originalCost × 100. */
+  financialProgress: number | null;
+}
+
+/**
+ * Derived stall status for a project.
+ */
+export type StallStatus = "active" | "slowing" | "stalled" | "insufficient_data";
+
+/**
+ * A single entry in the deadline revision history.
+ */
+export interface DeadlineHistoryEntry {
+  date: string;
+  label: "original" | "revision" | "current";
+  revisionNumber?: number;
+}
+
+/**
+ * Observed monthly history for a single project, plus derived intelligence
+ * fields computed from the real observations.
+ */
+export interface ProjectHistory {
+  points: ProjectObservationPoint[];
+  observationCount: number;
+  consecutiveProgressIntervals: number;
+  availableIntervals: number;
+
+  /** Physical − financial progress (pp). Positive = financial lag. */
+  progressGap: number | null;
+  progressGapInterpretation: string | null;
+  /** Short classification: "FINANCIAL_LAG" | "FINANCIAL_LEAD" | "ALIGNED" | null. */
+  progressGapLabel: string | null;
+
+  stallStatus: StallStatus;
+  stalledSinceMonth: string | null;
+  stallDurationMonths: number | null;
+
+  deadlineRevisionCount: number;
+  deadlineHistory: DeadlineHistoryEntry[];
+  originalDeadline: string | null;
+  latestDeadline: string | null;
+
+  observationFrequency: "monthly" | "irregular" | "single";
+  hasGaps: boolean;
+
+  deadlineRevisionTrend: "rising" | "stable" | "falling" | "insufficient_history";
 }
 
 /**

@@ -3,12 +3,16 @@ import { ApiError, type ApiErrorBody } from './types';
 /**
  * Base URL for the PAIMANA backend API.
  *
- * Configure via VITE_API_BASE_URL. Falls back to the local development
- * backend on port 3000.
+ * Configure via VITE_API_URL (set in frontend/.env.local or the build
+ * environment). In development only, falls back to the local backend on
+ * port 3000. In production there is intentionally no fallback: requests to
+ * an unconfigured URL fail loudly so deployment misconfiguration is obvious.
  */
+const DEV_FALLBACK_URL = 'http://localhost:3000/api/v1';
+
 export const API_BASE_URL =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ??
-  'http://localhost:3000/api/v1';
+  (import.meta.env.VITE_API_URL as string | undefined) ??
+  (import.meta.env.DEV ? DEV_FALLBACK_URL : '');
 
 /**
  * Minimal wrapper around fetch() for the PAIMANA backend.

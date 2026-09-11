@@ -187,15 +187,17 @@ router.get("/attention", async (_req, res) => {
 /**
  * GET /api/v1/projects/:projectCode
  *
- * Returns a single project by its PAIMANA projectCode.
+ * Returns a single project by its PAIMANA projectCode, including its
+ * observed monthly history and evidence counts (used by the detail page's
+ * trajectory / what-changed / confidence sections).
  */
 router.get("/:id", async (req, res) => {
     try {
         const { id } = req.params;
 
-        const project = await getProjectByCode(id);
+        const detail = await getProjectByCode(id);
 
-        if (!project) {
+        if (!detail) {
             return res.status(404).json({
                 message: "Project not found",
             });
@@ -203,7 +205,10 @@ router.get("/:id", async (req, res) => {
 
         // Returned wrapped for compatibility with the prior
         // Prisma-backed response shape.
-        return res.json({ project });
+        return res.json({
+            project: detail.project,
+            history: detail.history,
+        });
     } catch (error) {
         console.error(error);
 

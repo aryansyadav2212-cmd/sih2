@@ -116,6 +116,133 @@ export interface ProjectSummary {
 }
 
 /**
+ * One reported monthly observation for a single project, used by the project
+ * detail page to render the observed trajectory and the "what changed"
+ * comparison.
+ */
+export interface ProjectHistoryPoint {
+    reportMonth: string;
+    physicalProgress: number | null;
+    cumulativeExpenditure: number | null;
+    originalCost: number | null;
+    revisedCost: number | null;
+    originalDoc: string | null;
+    revisedDoc: string | null;
+    /** Financial progress %: cumulativeExpenditure / originalCost × 100. */
+    financialProgress: number | null;
+}
+
+/**
+ * Derived stall status for a project, computed from consecutive observations
+ * where zero physical progress was reported.
+ */
+export type StallStatus =
+    | "active"
+    | "slowing"
+    | "stalled"
+    | "insufficient_data";
+
+/**
+ * A single entry in the deadline revision history.
+ */
+export interface DeadlineHistoryEntry {
+    date: string;
+    label:
+        | "original"
+        | "revision"
+        | "current";
+    /** 1-indexed revision number (only for "revision" entries). */
+    revisionNumber?: number;
+}
+
+/**
+ * Observed monthly history for a single project, plus derived intelligence
+ * fields computed from the real observations. Every derived field has a
+ * clearly documented source — nothing is invented.
+ */
+export interface ProjectHistory {
+    points: ProjectHistoryPoint[];
+    /** Number of distinct monthly observations on record. */
+    observationCount: number;
+    /**
+     * Adjacent month pairs (months exactly one apart) with physical progress
+     * reported in both. A signal of how continuous the underlying evidence is.
+     */
+    consecutiveProgressIntervals: number;
+    /**
+     * Adjacent observation pairs with physical progress in both, regardless
+     * of the gap between them.
+     */
+    availableIntervals: number;
+
+    // ── Derived intelligence fields ──
+
+    /**
+     * Physical progress − financial progress (in percentage points).
+     * Positive = financial lag, negative = financial lead.
+     * Null when either value is unavailable.
+     */
+    progressGap: number | null;
+    /** Human-readable interpretation of the progress gap. */
+    progressGapInterpretation: string | null;
+    /**
+     * Short classification of the progress gap direction.
+     * "FINANCIAL_LAG" | "FINANCIAL_LEAD" | "ALIGNED" | null.
+     */
+    progressGapLabel: string | null;
+
+    /**
+     * Stall status derived from consecutive observations with zero
+     * physical progress. "stalled" requires ≥2 consecutive zero-progress
+     * intervals with no missing months between them.
+     */
+    stallStatus: StallStatus;
+    /** Month from which no progress has been reported (stalled projects only). */
+    stalledSinceMonth: string | null;
+    /** Number of months stalled (stalled projects only). */
+    stallDurationMonths: number | null;
+
+    /** Number of distinct revisedDoc values across all observations. */
+    deadlineRevisionCount: number;
+    /** Ordered deadline history from original through latest revision. */
+    deadlineHistory: DeadlineHistoryEntry[];
+    /** Earliest observed originalDoc, or null. */
+    originalDeadline: string | null;
+    /** Latest observed revisedDoc, or null. */
+    latestDeadline: string | null;
+
+    /**
+     * Observation frequency: "monthly" when all intervals are exactly 1
+     * month apart, "irregular" when gaps exist, "single" when only one
+     * observation exists.
+     */
+    observationFrequency: "monthly" | "irregular" | "single";
+    /** True when the observation record has month gaps. */
+    hasGaps: boolean;
+
+    /**
+     * Deadline revision trend — "rising" when deadlines are being pushed
+     * later over successive observations, "stable" when unchanged,
+     * "falling" when the deadline has moved earlier.
+     */
+    deadlineRevisionTrend:
+        | "rising"
+        | "stable"
+        | "falling"
+        | "insufficient_history";
+}
+
+/**
+ * Single-project detail response: the latest-observation summary (as listed
+ * by the Explorer) plus the full observed history used by the detail page's
+ * trajectory / what-changed / confidence sections.
+ */
+export interface ProjectDetail {
+    project: ProjectSummary;
+    history: ProjectHistory | null;
+}
+
+/**
  * A single selectable filter value with a count of matching projects.
  */
 export interface FacetValue {
@@ -194,6 +321,13 @@ export interface AttentionResponse {
 let catalogCache: ProjectSummary[] | null = null;
 
 /**
+ * Per-code raw observation history (all months, earliest-seen first per
+ * month), built alongside {@link catalogCache} so the detail page can render
+ * the observed trajectory without recomputing it per request.
+ */
+let catalogHistoryCache: Map<string, HistoricalObservation[]> | null = null;
+
+/**
  * Loads and deduplicates the historical observations into a project catalog.
  * Each project reflects its most recent observation (by reportMonth).
  *
@@ -220,6 +354,11 @@ async function loadProjectCatalog(): Promise<ProjectSummary[]> {
         HistoricalObservation
     >();
 
+    const historyByCode = new Map<
+        string,
+        HistoricalObservation[]
+    >();
+
     for (const observation of observations) {
         const projectCode = observation.projectCode;
 
@@ -236,6 +375,15 @@ async function loadProjectCatalog(): Promise<ProjectSummary[]> {
         ) {
             latestByCode.set(projectCode, observation);
         }
+
+        let months = historyByCode.get(projectCode);
+
+        if (!months) {
+            months = [];
+            historyByCode.set(projectCode, months);
+        }
+
+        months.push(observation);
     }
 
     const catalog: ProjectSummary[] = [];
@@ -274,8 +422,391 @@ async function loadProjectCatalog(): Promise<ProjectSummary[]> {
     }
 
     catalogCache = catalog;
+    catalogHistoryCache = historyByCode;
 
     return catalog;
+}
+
+/**
+ * Converts a "YYYY-MM" report month into a sortable month index, or null
+ * when the value is malformed.
+ */
+function monthIndex(month: string): number | null {
+    const match = /^(\d{4})-(\d{2})$/.exec(month);
+
+    if (!match) return null;
+
+    return Number(match[1]) * 12 + (Number(match[2]) - 1);
+}
+
+/**
+ * Reduces a project's raw observations to one point per report month —
+ * keeping the earliest-seen record on a same-month tie, mirroring the
+ * catalog's deduplication rule — ordered oldest first.
+ */
+function buildHistoryPoints(
+    observations: HistoricalObservation[]
+): ProjectHistoryPoint[] {
+    const byMonth = new Map<string, HistoricalObservation>();
+
+    for (const observation of observations) {
+        const month = observation.reportMonth;
+
+        if (!month) continue;
+
+        if (!byMonth.has(month)) {
+            byMonth.set(month, observation);
+        }
+    }
+
+    return Array.from(byMonth.entries())
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([reportMonth, observation]) => {
+            const originalCost =
+                observation.originalCost ?? null;
+            const cumulativeExpenditure =
+                observation.cumulativeExpenditure ?? null;
+
+            let financialProgress: number | null = null;
+
+            if (
+                originalCost !== null &&
+                originalCost > 0 &&
+                cumulativeExpenditure !== null
+            ) {
+                financialProgress = Math.min(
+                    100,
+                    Math.max(
+                        0,
+                        (cumulativeExpenditure / originalCost) * 100
+                    )
+                );
+            }
+
+            return {
+                reportMonth,
+                physicalProgress:
+                    observation.physicalProgress ?? null,
+                cumulativeExpenditure,
+                originalCost,
+                revisedCost:
+                    observation.revisedCost ?? null,
+                originalDoc:
+                    observation.originalDoc ?? null,
+                revisedDoc:
+                    observation.revisedDoc ?? null,
+                financialProgress,
+            };
+        });
+}
+
+/**
+ * Returns the observed monthly history for a project, including derived
+ * intelligence fields (progress gap, stall status, deadline history,
+ * observation frequency). All derived fields are sourced directly from
+ * the real observations — nothing is invented.
+ */
+export function getProjectHistory(
+    projectCode: string
+): ProjectHistory | null {
+    const raw = catalogHistoryCache?.get(projectCode);
+
+    if (!raw || raw.length === 0) return null;
+
+    const points = buildHistoryPoints(raw);
+
+    if (points.length === 0) return null;
+
+    // ── Interval counts ──
+    let availableIntervals = 0;
+    let consecutiveProgressIntervals = 0;
+    let monthGaps = 0;
+
+    for (let i = 1; i < points.length; i++) {
+        const previous = points[i - 1] as ProjectHistoryPoint | undefined;
+        const current = points[i] as ProjectHistoryPoint | undefined;
+
+        if (
+            !previous ||
+            !current
+        ) {
+            continue;
+        }
+
+        if (
+            previous.physicalProgress !== null &&
+            current.physicalProgress !== null
+        ) {
+            availableIntervals += 1;
+        }
+
+        const prevIndex = monthIndex(
+            previous.reportMonth
+        );
+        const currIndex = monthIndex(current.reportMonth);
+
+        if (prevIndex !== null && currIndex !== null) {
+            if (currIndex - prevIndex === 1) {
+                consecutiveProgressIntervals += 1;
+            } else if (currIndex - prevIndex > 1) {
+                monthGaps += 1;
+            }
+        }
+    }
+
+    // ── Progress gap (latest observation) ──
+    const latest = points[points.length - 1]!;
+    const progressGap =
+        latest.physicalProgress !== null &&
+        latest.financialProgress !== null
+            ? Math.round(
+                  (latest.physicalProgress - latest.financialProgress) * 10
+              ) / 10
+            : null;
+
+    let progressGapInterpretation: string | null = null;
+    let progressGapLabel: string | null = null;
+
+    if (progressGap !== null) {
+        const absGap = Math.abs(progressGap);
+
+        if (progressGap > 0) {
+            progressGapInterpretation =
+                `Physical execution is ${absGap.toFixed(1)} pp ahead of financial progress. Financial lag may reflect billing/payment timing, retention, certification delays, or reporting lag.`;
+            progressGapLabel = "FINANCIAL_LAG";
+        } else if (progressGap < 0) {
+            progressGapInterpretation =
+                `Financial progress is ${absGap.toFixed(1)} pp ahead of physical execution. This may reflect advance payments, procurement commitments, or scope changes.`;
+            progressGapLabel = "FINANCIAL_LEAD";
+        } else {
+            progressGapInterpretation =
+                "Physical and financial progress are aligned.";
+            progressGapLabel = "ALIGNED";
+        }
+    }
+
+    // ── Stall status ──
+    let stallStatus: StallStatus = "insufficient_data";
+    let stalledSinceMonth: string | null = null;
+    let stallDurationMonths: number | null = null;
+
+    if (points.length >= 2) {
+        // Walk backwards from the latest observation to find the most
+        // recent month where progress was non-zero.
+        let lastNonZeroIndex = -1;
+
+        for (let i = points.length - 1; i >= 0; i--) {
+            const pt = points[i] as ProjectHistoryPoint;
+
+            if (pt.physicalProgress !== null && pt.physicalProgress > 0) {
+                lastNonZeroIndex = i;
+                break;
+            }
+        }
+
+        if (lastNonZeroIndex === -1) {
+            // All observations have zero or null progress.
+            stallStatus = "stalled";
+            stalledSinceMonth = points[0]?.reportMonth ?? null;
+            stallDurationMonths = points.length;
+        } else if (lastNonZeroIndex < points.length - 1) {
+            // There are observations AFTER the last non-zero one.
+            const stalledObsCount =
+                points.length - 1 - lastNonZeroIndex;
+
+            // Only call it "stalled" if we have ≥2 consecutive zero-progress
+            // observations with no month gaps between the stall start and now.
+            if (stalledObsCount >= 2) {
+                // Verify no gaps during the stall period.
+                let stallHasGaps = false;
+
+                for (
+                    let i = lastNonZeroIndex + 1;
+                    i < points.length;
+                    i++
+                ) {
+                    const prev = points[i - 1] as ProjectHistoryPoint;
+                    const cur = points[i] as ProjectHistoryPoint;
+                    const prevIdx = monthIndex(prev.reportMonth);
+                    const curIdx = monthIndex(cur.reportMonth);
+
+                    if (
+                        prevIdx !== null &&
+                        curIdx !== null &&
+                        curIdx - prevIdx > 1
+                    ) {
+                        stallHasGaps = true;
+                        break;
+                    }
+                }
+
+                if (!stallHasGaps) {
+                    stallStatus = "stalled";
+                    stalledSinceMonth =
+                        points[lastNonZeroIndex + 1]?.reportMonth ?? null;
+                    stallDurationMonths = stalledObsCount;
+                } else {
+                    stallStatus = "slowing";
+                }
+            } else if (stalledObsCount === 1) {
+                stallStatus = "slowing";
+            } else {
+                stallStatus = "active";
+            }
+        } else {
+            stallStatus = "active";
+        }
+
+        // Check if the most recent interval shows deceleration.
+        if (stallStatus === "active" && points.length >= 2) {
+            const last = points[points.length - 1] as ProjectHistoryPoint;
+            const prev = points[points.length - 2] as ProjectHistoryPoint;
+
+            if (
+                last.physicalProgress !== null &&
+                prev.physicalProgress !== null
+            ) {
+                const delta =
+                    last.physicalProgress - prev.physicalProgress;
+
+                if (delta <= 0 && delta > -1) {
+                    stallStatus = "slowing";
+                }
+            }
+        }
+    } else {
+        // Only one observation — cannot determine stall status.
+        stallStatus = "insufficient_data";
+    }
+
+    // ── Deadline history ──
+    const originalDocsSeen = new Set<string>();
+    const revisedDocsSeen = new Set<string>();
+
+    for (const pt of points) {
+        if (pt.originalDoc) originalDocsSeen.add(pt.originalDoc);
+        if (pt.revisedDoc) revisedDocsSeen.add(pt.revisedDoc);
+    }
+
+    const deadlineHistory: DeadlineHistoryEntry[] = [];
+    let deadlineRevisionCount = 0;
+
+    // Original deadline (from earliest observation or the project-level originalDoc).
+    const firstPoint = points[0] as ProjectHistoryPoint;
+
+    if (firstPoint.originalDoc) {
+        deadlineHistory.push({
+            date: firstPoint.originalDoc,
+            label: "original",
+        });
+    }
+
+    // Collect all distinct revisedDoc values across observations, sorted.
+    const allRevisedDocs = Array.from(revisedDocsSeen).sort();
+
+    if (allRevisedDocs.length > 0) {
+        // If the latest revisedDoc differs from the originalDoc, count revisions.
+        const latestRevised =
+            allRevisedDocs[allRevisedDocs.length - 1]!;
+
+        const earlierRevisions = allRevisedDocs.filter(
+            (d) => d !== firstPoint.originalDoc
+        );
+
+        deadlineRevisionCount = earlierRevisions.length;
+
+        for (let i = 0; i < earlierRevisions.length; i++) {
+            const isLatest =
+                earlierRevisions[i] === latestRevised;
+
+            deadlineHistory.push({
+                date: earlierRevisions[i]!,
+                label: isLatest ? "current" : "revision",
+                revisionNumber: i + 1,
+            });
+        }
+    } else if (deadlineHistory.length > 0) {
+        // No revisedDoc exists — original is also current.
+        deadlineHistory[0]!.label = "current";
+    }
+
+    const originalDeadline =
+        firstPoint.originalDoc ?? null;
+    const latestDeadline =
+        allRevisedDocs.length > 0
+            ? allRevisedDocs[allRevisedDocs.length - 1]!
+            : firstPoint.originalDoc ?? null;
+
+    // ── Observation frequency ──
+    let observationFrequency:
+        | "monthly"
+        | "irregular"
+        | "single" = "single";
+
+    if (points.length === 1) {
+        observationFrequency = "single";
+    } else if (monthGaps === 0) {
+        observationFrequency = "monthly";
+    } else {
+        observationFrequency = "irregular";
+    }
+
+    // ── Deadline revision trend ──
+    let deadlineRevisionTrend:
+        | "rising"
+        | "stable"
+        | "falling"
+        | "insufficient_history" = "insufficient_history";
+
+    if (allRevisedDocs.length >= 2) {
+        // Compare the earliest and latest revisedDoc dates.
+        const earliest = allRevisedDocs[0]!;
+        const latest_ = allRevisedDocs[allRevisedDocs.length - 1]!;
+
+        if (latest_ > earliest) {
+            deadlineRevisionTrend = "rising";
+        } else if (latest_ < earliest) {
+            deadlineRevisionTrend = "falling";
+        } else {
+            deadlineRevisionTrend = "stable";
+        }
+    } else if (allRevisedDocs.length === 1 && firstPoint.originalDoc) {
+        // Only one revisedDoc — compare against original.
+        if (allRevisedDocs[0]! > firstPoint.originalDoc) {
+            deadlineRevisionTrend = "rising";
+        } else if (allRevisedDocs[0]! < firstPoint.originalDoc) {
+            deadlineRevisionTrend = "falling";
+        } else {
+            deadlineRevisionTrend = "stable";
+        }
+    } else {
+        deadlineRevisionTrend = "insufficient_history";
+    }
+
+    return {
+        points,
+        observationCount: points.length,
+        consecutiveProgressIntervals,
+        availableIntervals,
+
+        progressGap,
+        progressGapInterpretation,
+        progressGapLabel,
+
+        stallStatus,
+        stalledSinceMonth,
+        stallDurationMonths,
+
+        deadlineRevisionCount,
+        deadlineHistory,
+        originalDeadline,
+        latestDeadline,
+
+        observationFrequency,
+        hasGaps: monthGaps > 0,
+
+        deadlineRevisionTrend,
+    };
 }
 
 /**
@@ -1171,14 +1702,16 @@ export async function getAttentionProjects(): Promise<AttentionResponse> {
 }
 
 /**
- * Retrieves a single project by its projectCode.
+ * Retrieves a single project by its projectCode, including its observed
+ * monthly history (used by the detail page's trajectory / what-changed /
+ * confidence sections).
  *
  * @param projectCode - The unique PAIMANA project code.
- * @returns The project summary or null if not found.
+ * @returns The project detail (latest summary + history) or null if not found.
  */
 export async function getProjectByCode(
     projectCode: string
-): Promise<ProjectSummary | null> {
+): Promise<ProjectDetail | null> {
     const catalog = await loadProjectCatalog();
 
     const project =
@@ -1198,7 +1731,9 @@ export async function getProjectByCode(
         riskIndex?.byCode
     );
 
-    return project;
+    const history = getProjectHistory(projectCode);
+
+    return { project, history };
 }
 
 /**

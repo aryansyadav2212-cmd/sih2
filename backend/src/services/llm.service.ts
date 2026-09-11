@@ -27,22 +27,27 @@ import { LLM_SYSTEM_PROMPT } from "../prompts/llm.system";
 // ============================================================================
 
 /**
- * OpenAI API key from environment variables.
- * Required for authentication with the OpenAI API.
- */
-const apiKey = process.env.OPENAI_API_KEY;
-
-if (!apiKey) {
-    throw new Error("OPENAI_API_KEY is not configured");
-}
-
-/**
  * OpenAI API client instance.
- * Configured with the API key for making requests.
+ *
+ * Created lazily on first use so the server can boot and serve /health and
+ * non-recommendation requests even when OPENAI_API_KEY is not configured.
+ *
+ * @throws {LLMServiceError} If OPENAI_API_KEY is not configured
+ * @internal
  */
-const ai = new OpenAI({
-    apiKey,
-});
+function getOpenAIClient(): OpenAI {
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+        throw new LLMServiceError(
+            "OPENAI_API_KEY is not configured",
+            500,
+            "OPENAI_AUTHENTICATION_FAILED"
+        );
+    }
+
+    return new OpenAI({ apiKey });
+}
 
 /**
  * OpenAI model to use for generation.
@@ -456,6 +461,8 @@ async function generateOpenAIResponse(
         attempt++
     ) {
         try {
+            const ai = getOpenAIClient();
+
             // Attempt to generate content with OpenAI
             return await ai.responses.create({
                 model,

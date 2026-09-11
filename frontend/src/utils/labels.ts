@@ -14,6 +14,7 @@ import type {
   ReasonGroup,
   RiskLevel,
   ScheduleState,
+  StallStatus,
 } from '../api/types';
 
 /**
@@ -239,4 +240,124 @@ export function attentionReason(
     return `Currently ${schedule.toLowerCase()}; no intervention signal yet.`;
   }
   return 'Signals worth tracking, but no immediate intervention is required.';
+}
+
+/**
+ * Short priority label derived from the product attention category.
+ * Used by the All Projects table's priority column and the priority buckets.
+ * Purely presentational — the category itself is determined server-side.
+ */
+export function priorityLabelFor(category: AttentionCategory): string {
+  switch (category) {
+    case 'intervention_required':
+      return 'HIGH PRIORITY';
+    case 'monitor':
+      return 'MONITOR';
+    case 'closure_watch':
+      return 'CLOSURE';
+    default:
+      return 'ROUTINE';
+  }
+}
+
+/**
+ * Frontend-derived assessment confidence banding based on real observation
+ * counts returned by the backend. Purely presentational — the thresholds
+ * are editorial choices, not backend logic.
+ */
+export function assessmentConfidence(
+  points: number | null,
+  consecutive: number | null,
+): { level: 'NONE' | 'LIMITED' | 'MODERATE' | 'SOLID'; detail: string } {
+  if (points === null || points === 0) {
+    return {
+      level: 'NONE',
+      detail: 'Insufficient observation record for this project.',
+    };
+  }
+
+  if (points === 1 || (consecutive ?? 0) === 0) {
+    return {
+      level: 'LIMITED',
+      detail: 'Sparse or discontinuous evidence — interpretation should be cautious.',
+    };
+  }
+
+  if (points >= 3 && (consecutive ?? 0) >= 2) {
+    return {
+      level: 'SOLID',
+      detail: 'Continuous evidence available — assessment grounded in repeated observations.',
+    };
+  }
+
+  return {
+    level: 'MODERATE',
+    detail: 'Moderate evidence coverage — some observation gaps may exist.',
+  };
+}
+
+/**
+ * Short label for a "YYYY-MM" report month, e.g. "APR '26".
+ * Returns the raw string if it is malformed.
+ */
+export function monthShortLabel(month: string): string {
+  const match = /^(\d{4})-(\d{2})$/.exec(month);
+
+  if (!match) return month;
+
+  const MONTHS = [
+    'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+    'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC',
+  ];
+
+  const m = MONTHS[Number(match[2]) - 1];
+
+  return m ? `${m} '${match[1].slice(2)}` : month;
+}
+
+/**
+ * Stall status labels for the project status section.
+ */
+export const stallStatusLabel: Record<StallStatus, string> = {
+  active: 'Active',
+  slowing: 'Slowing',
+  stalled: 'Stalled',
+  insufficient_data: 'Insufficient Data',
+};
+
+export function stallStatusLabelFor(
+  status: StallStatus | null | undefined
+): string | null {
+  if (!status) return null;
+  return stallStatusLabel[status] ?? null;
+}
+
+/**
+ * Progress gap label map for UI classification.
+ */
+export const progressGapLabelMap: Record<string, string> = {
+  FINANCIAL_LAG: 'Financial Lag',
+  FINANCIAL_LEAD: 'Financial Lead',
+  ALIGNED: 'Aligned',
+};
+
+/**
+ * Deadline revision trend labels.
+ */
+export const revisionTrendLabel: Record<string, string> = {
+  rising: 'Rising',
+  stable: 'Stable',
+  falling: 'Falling',
+  insufficient_history: 'Insufficient History',
+};
+
+/**
+ * Classify progress gap magnitude for a REVIEW SIGNAL tag.
+ * Returns true when the gap exceeds 10 percentage points.
+ */
+export function isSignificantProgressGap(
+  gap: number | null | undefined
+): boolean {
+  if (gap === null || gap === undefined) return false;
+  return Math.abs(gap) >= 10;
 }

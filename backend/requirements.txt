@@ -1,0 +1,14 @@
+# Python ML service dependencies (backend/ml)
+# Generated from the working backend/.venv (Python 3.9).
+# Install: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+# Run:     .venv/bin/uvicorn ml.api:app --host 0.0.0.0 --port 8000  (from backend/)
+
+fastapi==0.128.8
+uvicorn==0.39.0
+pydantic==2.13.5
+numpy==2.0.2
+pandas==2.3.3
+scikit-learn==1.6.1
+shap==0.49.1
+joblib==1.5.3
+pdfplumber==0.11.8

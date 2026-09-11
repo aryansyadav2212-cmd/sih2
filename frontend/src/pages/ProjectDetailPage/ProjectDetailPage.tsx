@@ -7,20 +7,25 @@ import {
   deadlineOutlookSentence,
   reasonGroupLabel,
   scheduleStateLabelFor,
+  stallStatusLabelFor,
+  revisionTrendLabel,
+  isSignificantProgressGap,
+  monthShortLabel,
 } from '../../utils/labels';
 import type {
   AttentionCategory,
   PredictionContext,
+  ProjectHistory,
   ProjectIntelligence,
   ProjectSummary,
   Reason,
 } from '../../api/types';
 import './ProjectDetailPage.css';
 
-/**
- * Maps the model probability band to a concise likelihood label.
- * Framed as "likelihood of deadline change", never as a failure risk.
- */
+// ============================================================================
+// Helpers
+// ============================================================================
+
 function riskPresentation(level: string | undefined): {
   label: string;
   className: string;
@@ -42,6 +47,11 @@ function formatPercent(value: number | null): string {
   return `${value.toFixed(1)}%`;
 }
 
+function formatPercent0(value: number | null): string {
+  if (value === null) return '—';
+  return `${value.toFixed(0)}%`;
+}
+
 function formatDays(value: number): string {
   if (Number.isNaN(value)) return '—';
   return `${value} days`;
@@ -58,11 +68,6 @@ function formatDate(value: string | null): string {
   });
 }
 
-/**
- * Honest, code-specific message for a failed prediction. Distinguishes the
- * real causes: missing deadline data (a genuine gap in the observation),
- * an unreachable model, rate limiting, or an internal data validation bug.
- */
 function predictionUnavailableMessage(
   code: string | null,
   fallback: string
@@ -84,6 +89,10 @@ function predictionUnavailableMessage(
       return fallback;
   }
 }
+
+// ============================================================================
+// Section 1 — Header
+// ============================================================================
 
 function HeaderMeta({
   project,
@@ -121,91 +130,23 @@ function HeaderMeta({
   );
 }
 
-/**
- * LAYER 1 — reported project status. Plain reporting language only.
- */
-function ProjectStatusBlock({
-  context,
-  financialRatio,
-}: {
-  context: PredictionContext;
-  financialRatio: number | null;
-}) {
-  const stateLabel =
-    scheduleStateLabelFor(context.scheduleState) ?? context.scheduleState;
-  const healthy =
-    context.scheduleState === 'on_track' || context.scheduleState === 'completed';
+// ============================================================================
+// Section 2 — TRACE OUTLOOK (enhanced with trend)
+// ============================================================================
 
-  const items = [
-    {
-      label: 'Completion',
-      value: formatPercent(context.currentProgress),
-      valueClass: '',
-    },
-    {
-      label: 'Remaining Work',
-      value: formatPercent(context.remainingProgress),
-      valueClass: '',
-    },
-    {
-      label: 'Financial Progress',
-      value: financialRatio !== null ? `${(financialRatio * 100).toFixed(0)}%` : '—',
-      valueClass: '',
-    },
-    {
-      label: 'Schedule',
-      value: stateLabel,
-      valueClass: healthy ? 'ok' : 'error',
-    },
-    {
-      label: 'Completion Deadline',
-      value: formatDate(context.deadlineDate),
-      valueClass: context.remainingDays < 0 ? 'error' : '',
-    },
-    {
-      label: 'Time Remaining',
-      value: formatDays(context.remainingDays),
-      valueClass: context.remainingDays < 0 ? 'error' : '',
-    },
-  ];
-
-  return (
-    <div className="status-outlook__block">
-      <div className="status-outlook__block-head font-label-caps">
-        PROJECT STATUS
-      </div>
-      <p className="status-outlook__block-sub font-metadata">
-        Reported from the latest PAIMANA observation.
-      </p>
-      <div className="status-list">
-        {items.map(item => (
-          <div key={item.label} className="status-row">
-            <span className="status-row__label font-metadata">{item.label}</span>
-            <span
-              className={`status-row__value font-body-md ${item.valueClass === 'error' ? 'color-error' : ''} ${item.valueClass === 'ok' ? 'color-ok' : ''}`}
-            >
-              {item.value}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/**
- * LAYER 1 — deadline outlook: one large likelihood figure plus a plain
- * sentence. Framed as a forecast about the recorded completion date, never
- * as a failure verdict. Rendered as the dark anchor panel.
- */
 function DeadlineOutlookBlock({
   intelligence,
+  history,
 }: {
   intelligence: ProjectIntelligence;
+  history: ProjectHistory | null;
 }) {
   const { prediction } = intelligence;
   const risk = riskPresentation(prediction.riskLevel);
   const pct = (prediction.probability * 100).toFixed(0);
+
+  const trend = history?.deadlineRevisionTrend ?? 'insufficient_history';
+  const trendLabel = revisionTrendLabel[trend] ?? trend;
 
   return (
     <div className="trace-outlook">
@@ -234,16 +175,926 @@ function DeadlineOutlookBlock({
         A forecast about the recorded completion date — not an assessment of
         project quality or failure.
       </p>
+
+      {/* Outlook Trend */}
+      {history && history.deadlineRevisionCount >= 1 && (
+        <div className="trace-outlook__trend">
+          <span className="trace-outlook__trend-label font-label-caps">
+            OUTLOOK TREND
+          </span>
+          <span className={`trace-outlook__trend-delta trace-outlook__trend-delta--${trend} font-metadata`}>
+            {trendLabel.toUpperCase()}
+          </span>
+          {history.deadlineRevisionCount > 0 && (
+            <span className="trace-outlook__trend-note font-metadata">
+              {history.deadlineRevisionCount} deadline revision{history.deadlineRevisionCount !== 1 ? 's' : ''} on record
+            </span>
+          )}
+        </div>
+      )}
+      {history && history.deadlineRevisionCount === 0 && trend === 'insufficient_history' && (
+        <div className="trace-outlook__trend">
+          <span className="trace-outlook__trend-label font-label-caps">
+            OUTLOOK TREND
+          </span>
+          <span className="trace-outlook__trend-note font-metadata">
+            Insufficient historical assessments
+          </span>
+        </div>
+      )}
     </div>
   );
 }
 
-/**
- * Closure Watch — shown only when the project is at 97%+ reported completion.
- * Acknowledges the final-stage state explicitly and, where the project also
- * requires intervention, surfaces that signal separately instead of pretending
- * everything is normal.
- */
+// ============================================================================
+// Section 3 — ACTION PLAN
+// ============================================================================
+
+function ActionPlanSection({
+  intelligence,
+  history,
+  project,
+}: {
+  intelligence: ProjectIntelligence;
+  history: ProjectHistory | null;
+  project: ProjectSummary;
+}) {
+  const { recommendation, prediction, context } = intelligence;
+  const actions: {
+    verb: string;
+    verbClass: string;
+    text: string;
+    priority: string;
+    priorityClass: string;
+  }[] = [];
+
+  // Derive actions from project signals (not hardcoded)
+  const progressGap = history?.progressGap;
+  const stallStatus = history?.stallStatus;
+  const scheduleState = context.scheduleState;
+  const remainingDays = context.remainingDays;
+
+  // 1. Progress gap action
+  if (progressGap !== null && progressGap !== undefined && Math.abs(progressGap) >= 10) {
+    actions.push({
+      verb: 'VERIFY',
+      verbClass: 'action-item__verb--verify',
+      text: `Reconcile reported physical completion (${formatPercent0(project.physicalProgress)}) with financial utilization. Physical execution is ${Math.abs(progressGap).toFixed(0)} pp ${progressGap > 0 ? 'ahead of' : 'behind'} financial progress.`,
+      priority: 'MEDIUM',
+      priorityClass: 'action-item__priority--medium',
+    });
+  }
+
+  // 2. Stalled project action
+  if (stallStatus === 'stalled') {
+    actions.push({
+      verb: 'INVESTIGATE',
+      verbClass: 'action-item__verb--investigate',
+      text: history?.stalledSinceMonth
+        ? `Identify the blocker responsible for the stalled trajectory. No progress reported since ${monthShortLabel(history.stalledSinceMonth)}.`
+        : 'Identify the blocker responsible for the stalled trajectory.',
+      priority: 'HIGH',
+      priorityClass: 'action-item__priority--high',
+    });
+  }
+
+  // 3. Overdue action
+  if (scheduleState === 'overdue_incomplete' || (remainingDays !== null && remainingDays < 0)) {
+    actions.push({
+      verb: 'ESCALATE',
+      verbClass: 'action-item__verb--escalate',
+      text: `Confirm revised completion timeline and responsible authority. Project is ${Math.abs(remainingDays ?? 0)} days past deadline.`,
+      priority: 'HIGH',
+      priorityClass: 'action-item__priority--high',
+    });
+  }
+
+  // 4. Slowing action
+  if (stallStatus === 'slowing') {
+    actions.push({
+      verb: 'INVESTIGATE',
+      verbClass: 'action-item__verb--investigate',
+      text: 'Determine why progress has slowed. Recent completion pace has decelerated.',
+      priority: 'MEDIUM',
+      priorityClass: 'action-item__priority--medium',
+    });
+  }
+
+  // 5. LLM-derived actions from recommendation
+  if (recommendation?.recommendedActions && recommendation.recommendedActions.length > 0) {
+    for (const action of recommendation.recommendedActions.slice(0, 3)) {
+      actions.push({
+        verb: 'RESOLVE',
+        verbClass: 'action-item__verb--resolve',
+        text: action,
+        priority: prediction.riskLevel === 'high' ? 'HIGH' : prediction.riskLevel === 'medium' ? 'MEDIUM' : 'LOW',
+        priorityClass: prediction.riskLevel === 'high' ? 'action-item__priority--high' : prediction.riskLevel === 'medium' ? 'action-item__priority--medium' : 'action-item__priority--low',
+      });
+    }
+  }
+
+  // If no signals produce actions, show a general monitoring action
+  if (actions.length === 0) {
+    actions.push({
+      verb: 'MONITOR',
+      verbClass: '',
+      text: 'No immediate intervention signals detected. Continue monitoring reported progress.',
+      priority: 'LOW',
+      priorityClass: 'action-item__priority--low',
+    });
+  }
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-block">
+        <h2 className="section-heading font-headline-md">ACTION PLAN</h2>
+        <p className="section-subheading font-metadata">
+          Derived from project signals and intelligence analysis.
+        </p>
+      </div>
+      <div className="action-plan-list">
+        {actions.map((action, index) => (
+          <div key={index} className="action-item">
+            <div className="action-item__num font-metadata">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+            <div className="action-item__content">
+              <span className={`action-item__verb font-label-caps ${action.verbClass}`}>
+                {action.verb}
+              </span>
+              <p className="action-item__text font-body-md">{action.text}</p>
+              <div className="action-item__meta">
+                <span className={`action-item__priority font-label-caps ${action.priorityClass}`}>
+                  {action.priority}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 4 — WHY THIS MATTERS (Risk Drivers)
+// ============================================================================
+
+function ReasonsSection({ reasons }: { reasons: Reason[] }) {
+  if (reasons.length === 0) {
+    return (
+      <section className="detail-section">
+        <div className="section-heading-block">
+          <h2 className="section-heading font-headline-md">WHY THIS MATTERS</h2>
+          <p className="section-subheading font-metadata">
+            Signals associated with the outlook above.
+          </p>
+        </div>
+        <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
+          No contributing signals were reported for this project.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-block">
+        <h2 className="section-heading font-headline-md">WHY THIS MATTERS</h2>
+        <p className="section-subheading font-metadata">
+          Signals associated with deadline revision, not causes or instructions.
+        </p>
+      </div>
+      <div className="reasons-list">
+        {reasons.map((reason, index) => (
+          <div key={index} className="reason-row">
+            <div className="reason-row__num font-metadata">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+            <div className="reason-row__content">
+              <div className="reason-row__group font-label-caps">
+                {reasonGroupLabel[reason.group] ?? reason.group}
+              </div>
+              <div className="reason-row__message font-body-md">
+                {reason.message}
+              </div>
+            </div>
+            <div className={`reason-row__direction font-label-caps reason-direction--${reason.direction}`}>
+              {reason.direction === 'increases' ? 'Increases likelihood' : 'Reduces likelihood'}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 5 — WHAT CHANGED
+// ============================================================================
+
+function WhatChangedSection({ history }: { history: ProjectHistory }) {
+  const { points } = history;
+
+  if (points.length < 2) {
+    return (
+      <section className="detail-section">
+        <div className="section-heading-block">
+          <h2 className="section-heading font-headline-md">WHAT CHANGED</h2>
+          <p className="section-subheading font-metadata">
+            Changes since the previous observation.
+          </p>
+        </div>
+        <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
+          Not enough historical data to compute changes.
+        </p>
+      </section>
+    );
+  }
+
+  const prev = points[points.length - 2]!;
+  const curr = points[points.length - 1]!;
+
+  type ChangeRow = {
+    label: string;
+    prev: string;
+    curr: string;
+    delta: string;
+    direction: 'up' | 'down' | 'neutral';
+  };
+
+  const changes: ChangeRow[] = [];
+
+  // Physical progress
+  if (prev.physicalProgress !== null && curr.physicalProgress !== null) {
+    const diff = Math.round((curr.physicalProgress - prev.physicalProgress) * 10) / 10;
+    changes.push({
+      label: 'Physical Progress',
+      prev: formatPercent(prev.physicalProgress),
+      curr: formatPercent(curr.physicalProgress),
+      delta: `${diff > 0 ? '+' : ''}${diff.toFixed(1)} pp`,
+      direction: diff > 0 ? 'up' : diff < 0 ? 'down' : 'neutral',
+    });
+  }
+
+  // Financial progress
+  if (prev.financialProgress !== null && curr.financialProgress !== null) {
+    const diff = Math.round((curr.financialProgress - prev.financialProgress) * 10) / 10;
+    changes.push({
+      label: 'Financial Progress',
+      prev: formatPercent(prev.financialProgress),
+      curr: formatPercent(curr.financialProgress),
+      delta: `${diff > 0 ? '+' : ''}${diff.toFixed(1)} pp`,
+      direction: diff > 0 ? 'up' : diff < 0 ? 'down' : 'neutral',
+    });
+  }
+
+  // Progress gap
+  if (prev.physicalProgress !== null && prev.financialProgress !== null &&
+      curr.physicalProgress !== null && curr.financialProgress !== null) {
+    const prevGap = Math.round((prev.physicalProgress - prev.financialProgress) * 10) / 10;
+    const currGap = history.progressGap ?? 0;
+    const gapDiff = Math.round((currGap - prevGap) * 10) / 10;
+    if (Math.abs(gapDiff) >= 0.5) {
+      changes.push({
+        label: 'Progress Gap',
+        prev: `${prevGap > 0 ? '+' : ''}${prevGap.toFixed(1)} pp`,
+        curr: `${currGap > 0 ? '+' : ''}${currGap.toFixed(1)} pp`,
+        delta: `${gapDiff > 0 ? '+' : ''}${gapDiff.toFixed(1)} pp`,
+        direction: Math.abs(currGap) > Math.abs(prevGap) ? 'up' : 'down',
+      });
+    }
+  }
+
+  // Deadline revision
+  if (prev.revisedDoc !== curr.revisedDoc) {
+    changes.push({
+      label: 'Deadline',
+      prev: formatDate(prev.revisedDoc),
+      curr: formatDate(curr.revisedDoc),
+      delta: 'Revised',
+      direction: 'up',
+    });
+  }
+
+  if (changes.length === 0) {
+    return (
+      <section className="detail-section">
+        <div className="section-heading-block">
+          <h2 className="section-heading font-headline-md">WHAT CHANGED</h2>
+          <p className="section-subheading font-metadata">
+            Changes since the previous observation.
+          </p>
+        </div>
+        <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
+          No significant changes detected between the last two observations.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-block">
+        <h2 className="section-heading font-headline-md">WHAT CHANGED</h2>
+        <p className="section-subheading font-metadata">
+          {monthShortLabel(prev.reportMonth)} → {monthShortLabel(curr.reportMonth)}
+        </p>
+      </div>
+      <div className="what-changed-list">
+        {changes.map((change) => (
+          <div key={change.label} className="what-changed-row">
+            <span className="what-changed-row__label font-label-caps">{change.label}</span>
+            <div className="what-changed-row__values">
+              <span className="what-changed-row__prev">{change.prev}</span>
+              <span className="what-changed-row__arrow">→</span>
+              <span className="what-changed-row__curr">{change.curr}</span>
+              <span className={`what-changed-row__delta what-changed-row__delta--${change.direction}`}>
+                {change.delta}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 6 — PROJECT STATUS (enhanced with derived signals)
+// ============================================================================
+
+function ProjectStatusBlock({
+  context,
+  financialRatio,
+  history,
+}: {
+  context: PredictionContext;
+  financialRatio: number | null;
+  history: ProjectHistory | null;
+}) {
+  const stateLabel =
+    scheduleStateLabelFor(context.scheduleState) ?? context.scheduleState;
+  const healthy =
+    context.scheduleState === 'on_track' || context.scheduleState === 'completed';
+
+  const progressGap = history?.progressGap;
+  const progressGapLabel = history?.progressGapLabel;
+  const stallStatus = history?.stallStatus;
+  const stalledSinceMonth = history?.stalledSinceMonth;
+  const stallDurationMonths = history?.stallDurationMonths;
+
+  const gapTagClass = progressGapLabel === 'FINANCIAL_LAG' ? 'intel-signal__tag--lag'
+    : progressGapLabel === 'FINANCIAL_LEAD' ? 'intel-signal__tag--lead'
+    : 'intel-signal__tag--aligned';
+
+  const stallTagClass = stallStatus === 'stalled' ? 'intel-signal__tag--stalled'
+    : stallStatus === 'slowing' ? 'intel-signal__tag--slowing'
+    : stallStatus === 'active' ? 'intel-signal__tag--active'
+    : 'intel-signal__tag--na';
+
+  const items = [
+    {
+      label: 'Physical Completion',
+      value: formatPercent(context.currentProgress),
+      valueClass: '',
+    },
+    {
+      label: 'Financial Progress',
+      value: financialRatio !== null ? `${(financialRatio * 100).toFixed(0)}%` : '—',
+      valueClass: '',
+    },
+    {
+      label: 'Schedule',
+      value: stateLabel,
+      valueClass: healthy ? 'ok' : 'error',
+    },
+    {
+      label: 'Deadline',
+      value: formatDate(context.deadlineDate),
+      valueClass: context.remainingDays < 0 ? 'error' : '',
+    },
+    {
+      label: 'Time Remaining',
+      value: context.remainingDays !== null ? formatDays(context.remainingDays) : '—',
+      valueClass: context.remainingDays !== null && context.remainingDays < 0 ? 'error' : '',
+    },
+  ];
+
+  return (
+    <div className="status-outlook__block">
+      <div className="status-outlook__block-head font-label-caps">
+        PROJECT STATUS
+      </div>
+      <p className="status-outlook__block-sub font-metadata">
+        Reported from the latest PAIMANA observation.
+      </p>
+
+      {/* Core metrics */}
+      <div className="status-list">
+        {items.map(item => (
+          <div key={item.label} className="status-row">
+            <span className="status-row__label font-metadata">{item.label}</span>
+            <span
+              className={`status-row__value font-body-md ${item.valueClass === 'error' ? 'color-error' : ''} ${item.valueClass === 'ok' ? 'color-ok' : ''}`}
+            >
+              {item.value}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Derived intelligence signals */}
+      <div className="status-enhanced-grid">
+        {/* Progress Gap */}
+        <div className="intel-signal">
+          <span className="intel-signal__label font-label-caps">Progress Gap</span>
+          {progressGap !== null && progressGap !== undefined ? (
+            <>
+              <span className="intel-signal__value font-headline-md">
+                {progressGap > 0 ? '+' : ''}{progressGap.toFixed(1)} pp
+              </span>
+              {progressGapLabel && (
+                <span className={`intel-signal__tag font-label-caps ${gapTagClass}`}>
+                  {progressGapLabel === 'FINANCIAL_LAG' ? 'FINANCIAL LAG' :
+                   progressGapLabel === 'FINANCIAL_LEAD' ? 'FINANCIAL LEAD' :
+                   'ALIGNED'}
+                </span>
+              )}
+              {isSignificantProgressGap(progressGap) && (
+                <span className="intel-signal__detail font-metadata">
+                  REVIEW SIGNAL — mismatch may reflect billing timing, retention, certification delays, or scope changes.
+                </span>
+              )}
+            </>
+          ) : (
+            <span className="intel-signal__value font-headline-md color-ok">—</span>
+          )}
+        </div>
+
+        {/* Stall Status */}
+        <div className="intel-signal">
+          <span className="intel-signal__label font-label-caps">Stall Status</span>
+          <span className="intel-signal__value font-headline-md">
+            {stallStatusLabelFor(stallStatus) ?? '—'}
+          </span>
+          {stallStatus && (
+            <span className={`intel-signal__tag font-label-caps ${stallTagClass}`}>
+              {stallStatus.toUpperCase().replace('_', ' ')}
+            </span>
+          )}
+          {stallStatus === 'stalled' && stalledSinceMonth && (
+            <span className="intel-signal__detail font-metadata">
+              No progress reported since {monthShortLabel(stalledSinceMonth)}
+              {stallDurationMonths ? ` · ${stallDurationMonths} month${stallDurationMonths !== 1 ? 's' : ''}` : ''}
+            </span>
+          )}
+          {stallStatus === 'insufficient_data' && (
+            <span className="intel-signal__detail font-metadata">
+              Only one observation available — stall status cannot be determined.
+            </span>
+          )}
+        </div>
+
+        {/* Deadline */}
+        <div className="intel-signal">
+          <span className="intel-signal__label font-label-caps">Deadline</span>
+          <span className={`intel-signal__value font-headline-md ${context.remainingDays < 0 ? 'color-error' : ''}`}>
+            {context.remainingDays !== null ? formatDays(context.remainingDays) : '—'}
+          </span>
+          {context.remainingDays !== null && context.remainingDays < 0 && (
+            <span className="intel-signal__tag intel-signal__tag--stalled font-label-caps">
+              OVERDUE
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ConditionSection({
+  intelligence,
+  financialRatio,
+  history,
+}: {
+  intelligence: ProjectIntelligence;
+  financialRatio: number | null;
+  history: ProjectHistory | null;
+}) {
+  const { context } = intelligence;
+
+  return (
+    <section className="detail-section">
+      {/* Dark TRACE OUTLOOK anchor */}
+      <DeadlineOutlookBlock intelligence={intelligence} history={history} />
+
+      {/* Light status block */}
+      <div className="status-outlook__wrap">
+        <h2 className="section-heading font-headline-md">PROJECT STATUS</h2>
+        <ProjectStatusBlock
+          context={context}
+          financialRatio={financialRatio}
+          history={history}
+        />
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 7 — PROJECT TRAJECTORY
+// ============================================================================
+
+function ProgressIntelligenceSection({
+  intelligence,
+}: {
+  intelligence: ProjectIntelligence;
+}) {
+  const { context } = intelligence;
+
+  const observedVelocity =
+    context.observedVelocity !== null && context.observedVelocity !== undefined
+      ? `${context.observedVelocity.toFixed(1)}%/mo`
+      : '—';
+  const requiredVelocity =
+    context.requiredVelocity !== null && context.requiredVelocity !== undefined
+      ? `${context.requiredVelocity.toFixed(1)}%/mo`
+      : '—';
+
+  const velocityConflict =
+    context.observedVelocity !== null &&
+    context.observedVelocity !== undefined &&
+    context.requiredVelocity !== null &&
+    context.requiredVelocity !== undefined &&
+    context.observedVelocity < context.requiredVelocity;
+
+  const stateLabel =
+    scheduleStateLabelFor(context.scheduleState) ?? context.scheduleState;
+
+  const items = [
+    {
+      label: 'Recent Completion Pace',
+      value: observedVelocity,
+      sub: 'per month, from recent reports',
+      color: '',
+    },
+    {
+      label: 'Pace Needed for Deadline',
+      value: requiredVelocity,
+      sub:
+        context.requiredVelocity === null
+          ? 'Not computable past deadline'
+          : 'per month to hold the deadline',
+      color: velocityConflict ? 'error' : '',
+    },
+    {
+      label: 'Schedule',
+      value: stateLabel,
+      sub: 'Latest assessment',
+      color: context.scheduleState === 'on_track' ? 'ok' : 'error',
+    },
+    {
+      label: 'Time Remaining',
+      value: context.remainingDays !== null ? formatDays(context.remainingDays) : '—',
+      sub: context.remainingDays !== null && context.remainingDays < 0 ? 'Past deadline' : 'Until deadline',
+      color: context.remainingDays !== null && context.remainingDays < 0 ? 'error' : '',
+    },
+  ];
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-block">
+        <h2 className="section-heading font-headline-md">PROJECT TRAJECTORY</h2>
+        <p className="section-subheading font-metadata">
+          How the project&apos;s recent progress compares with the current deadline.
+        </p>
+      </div>
+
+      <div className="progress-strip">
+        {items.map(item => (
+          <div key={item.label} className="progress-strip__item">
+            <span className="progress-strip__label font-label-caps">{item.label}</span>
+            <span className={`progress-strip__value font-headline-md ${item.color === 'error' ? 'color-error' : ''} ${item.color === 'ok' ? 'color-ok' : ''}`}>
+              {item.value}
+              {item.sub && <span className="progress-strip__sub font-metadata"> · {item.sub}</span>}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 8 — BASELINE & GOVERNANCE
+// ============================================================================
+
+function GovernancePanel({
+  history,
+  project,
+}: {
+  history: ProjectHistory | null;
+  project: ProjectSummary;
+}) {
+  if (!history) {
+    return (
+      <section className="detail-section">
+        <div className="section-heading-block">
+          <h2 className="section-heading font-headline-md">BASELINE & GOVERNANCE</h2>
+          <p className="section-subheading font-metadata">
+            Deadline history and operational ownership.
+          </p>
+        </div>
+        <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
+          Governance data not available — no observation history for this project.
+        </p>
+      </section>
+    );
+  }
+
+  const {
+    deadlineHistory,
+    deadlineRevisionCount,
+    originalDeadline,
+    latestDeadline,
+  } = history;
+
+  const cells = [
+    {
+      label: 'Original Deadline',
+      value: formatDate(originalDeadline),
+      valueClass: '',
+    },
+    {
+      label: 'Current Deadline',
+      value: formatDate(latestDeadline),
+      valueClass: latestDeadline && originalDeadline && latestDeadline > originalDeadline ? 'error' : '',
+    },
+    {
+      label: 'Deadline Revisions',
+      value: deadlineRevisionCount > 0 ? `${deadlineRevisionCount}` : 'Not available',
+      valueClass: deadlineRevisionCount > 1 ? 'error' : '',
+    },
+    {
+      label: 'Assigned Officer',
+      value: 'Unassigned',
+      valueClass: 'muted',
+    },
+    {
+      label: 'Escalation Status',
+      value: project.attentionCategory === 'intervention_required' ? 'Action Required' : 'Monitoring',
+      valueClass: project.attentionCategory === 'intervention_required' ? 'error' : 'ok',
+    },
+    {
+      label: 'Change Orders',
+      value: 'Not reported',
+      valueClass: 'muted',
+    },
+  ];
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-block">
+        <h2 className="section-heading font-headline-md">BASELINE & GOVERNANCE</h2>
+        <p className="section-subheading font-metadata">
+          Deadline history and operational ownership.
+        </p>
+      </div>
+
+      <div className="governance-grid">
+        {cells.map(cell => (
+          <div key={cell.label} className="governance-cell">
+            <span className="governance-cell__label font-label-caps">{cell.label}</span>
+            <span className={`governance-cell__value font-body-md ${
+              cell.valueClass === 'error' ? 'governance-cell__value--error' :
+              cell.valueClass === 'ok' ? 'governance-cell__value--ok' :
+              cell.valueClass === 'muted' ? 'governance-cell__value--muted' : ''
+            }`}>
+              {cell.value}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Deadline History Timeline */}
+      {deadlineHistory.length > 0 && (
+        <div style={{ marginTop: 24 }}>
+          <span className="font-label-caps" style={{ color: 'var(--color-on-surface-variant)', letterSpacing: '0.12em', fontSize: 11 }}>
+            BASELINE HISTORY
+          </span>
+          <div className="deadline-timeline">
+            {deadlineHistory.map((entry, index) => (
+              <div
+                key={index}
+                className={`deadline-timeline__entry ${
+                  entry.label === 'current' ? 'deadline-timeline__entry--current' :
+                  entry.label === 'original' ? 'deadline-timeline__entry--original' : ''
+                }`}
+              >
+                <span className="deadline-timeline__date font-body-md">
+                  {formatDate(entry.date)}
+                </span>
+                <span className="deadline-timeline__label font-metadata">
+                  {entry.label === 'original' ? 'Original' :
+                   entry.label === 'current' ? 'Current' :
+                   `Revision #${entry.revisionNumber}`}
+                </span>
+              </div>
+            ))}
+          </div>
+          {deadlineRevisionCount > 1 && (
+            <p className="font-metadata" style={{ color: 'var(--color-on-surface-variant)', marginTop: 12, textTransform: 'uppercase', letterSpacing: '0.08em', lineHeight: 1.6 }}>
+              Repeated deadline revisions increase schedule-monitoring attention.
+            </p>
+          )}
+        </div>
+      )}
+
+      {deadlineHistory.length === 0 && (
+        <p className="font-metadata" style={{ color: 'var(--color-on-surface-variant)', marginTop: 16, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+          BASELINE HISTORY: Not available in supplied observations.
+        </p>
+      )}
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 9 — EVIDENCE & DATA QUALITY
+// ============================================================================
+
+function EvidenceDataQualitySection({
+  intelligence,
+  history,
+  project,
+}: {
+  intelligence: ProjectIntelligence;
+  history: ProjectHistory | null;
+  project: ProjectSummary;
+}) {
+  const evidence = intelligence.externalEvidence ?? [];
+  const obsCount = history?.observationCount ?? 0;
+  const obsFreq = history?.observationFrequency ?? 'single';
+
+  const dataConfidence =
+    obsCount >= 3 && (history?.consecutiveProgressIntervals ?? 0) >= 2 ? 'Solid'
+    : obsCount >= 2 ? 'Moderate'
+    : obsCount === 1 ? 'Limited'
+    : 'None';
+
+  const dataConfidenceDetail =
+    dataConfidence === 'Solid'
+      ? 'Continuous evidence available — assessment grounded in repeated observations.'
+      : dataConfidence === 'Moderate'
+      ? 'Moderate evidence coverage — some observation gaps may exist.'
+      : dataConfidence === 'Limited'
+      ? 'Sparse evidence — interpretation should be cautious.'
+      : 'Insufficient observation record for this project.';
+
+  const cells = [
+    {
+      label: 'Latest Observation',
+      value: project.reportMonth ? monthShortLabel(project.reportMonth) : 'Not reported',
+      muted: !project.reportMonth,
+    },
+    {
+      label: 'Observation Frequency',
+      value: obsFreq === 'monthly' ? 'Monthly' : obsFreq === 'irregular' ? 'Irregular' : obsFreq === 'single' ? 'Single observation' : '—',
+      muted: obsFreq === 'single',
+    },
+    {
+      label: 'Historical Observations',
+      value: obsCount > 0 ? `${obsCount}` : '—',
+      muted: obsCount === 0,
+    },
+    {
+      label: 'Site Inspection',
+      value: 'Not reported',
+      muted: true,
+    },
+    {
+      label: 'External Evidence',
+      value: evidence.length > 0 ? `${evidence.length} linked` : 'None linked',
+      muted: evidence.length === 0,
+    },
+    {
+      label: 'Data Confidence',
+      value: dataConfidence,
+      muted: dataConfidence === 'None' || dataConfidence === 'Limited',
+    },
+  ];
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-block">
+        <h2 className="section-heading font-headline-md">EVIDENCE & DATA QUALITY</h2>
+        <p className="section-subheading font-metadata">
+          Quality and completeness of the underlying observation record.
+        </p>
+      </div>
+
+      <div className="data-quality-grid">
+        {cells.map(cell => (
+          <div key={cell.label} className="data-quality-cell">
+            <span className="data-quality-cell__label font-label-caps">{cell.label}</span>
+            <span className={`data-quality-cell__value font-body-md ${cell.muted ? 'data-quality-cell__value--muted' : ''}`}>
+              {cell.value}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Data confidence detail */}
+      <p className="font-metadata" style={{ color: 'var(--color-on-surface-variant)', marginTop: 16, textTransform: 'uppercase', letterSpacing: '0.08em', lineHeight: 1.6 }}>
+        {dataConfidenceDetail}
+      </p>
+
+      {/* Site inspection disclaimer */}
+      <p className="font-metadata" style={{ color: 'var(--color-on-surface-variant)', marginTop: 8, textTransform: 'uppercase', letterSpacing: '0.08em', lineHeight: 1.6 }}>
+        Self-reported observations are not equivalent to independently verified site inspections.
+      </p>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 10 — EXTERNAL EVIDENCE (enhanced empty state)
+// ============================================================================
+
+function ExternalEvidenceSection({
+  intelligence,
+}: {
+  intelligence: ProjectIntelligence;
+}) {
+  const evidence = intelligence.externalEvidence ?? [];
+
+  if (evidence.length === 0) {
+    return (
+      <section className="detail-section">
+        <div className="section-heading-row">
+          <h2 className="section-heading font-headline-md">EXTERNAL EVIDENCE</h2>
+          <span className="font-metadata evidence-disclaimer">
+            External sources · separate from PAIMANA data
+          </span>
+        </div>
+        <div className="verification-required">
+          <span className="verification-required__title font-label-caps">
+            VERIFICATION REQUIRED
+          </span>
+          <p className="verification-required__body font-body-md">
+            No external evidence currently linked. This assessment is based on reported project observations.
+          </p>
+          <div className="verification-required__grid font-metadata">
+            <span className="verification-required__key">Task:</span>
+            <span className="verification-required__val">Verify latest physical progress</span>
+            <span className="verification-required__key">Assigned to:</span>
+            <span className="verification-required__val">Unassigned</span>
+            <span className="verification-required__key">Status:</span>
+            <span className="verification-required__val">Open</span>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="detail-section">
+      <div className="section-heading-row">
+        <h2 className="section-heading font-headline-md">EXTERNAL EVIDENCE</h2>
+        <span className="font-metadata evidence-disclaimer">
+          External sources · separate from PAIMANA data
+        </span>
+      </div>
+      <div className="evidence-list">
+        {evidence.map((item, index) => (
+          <a
+            key={index}
+            href={item.url}
+            target="_blank"
+            rel="noreferrer"
+            className="evidence-item"
+          >
+            <div className="evidence-item__top">
+              <span className={`evidence-quality evidence-quality--${item.quality} font-label-caps`}>
+                {item.quality.toUpperCase()} QUALITY
+              </span>
+              <span className="font-metadata evidence-item__source">{item.source}</span>
+            </div>
+            <h3 className="evidence-item__title font-headline-md">{item.title}</h3>
+            <p className="evidence-item__claim font-body-md">{item.claim}</p>
+            <div className="font-metadata evidence-item__date">{formatDate(item.date)}</div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ============================================================================
+// Section 11 — CLOSURE WATCH NOTICE (existing)
+// ============================================================================
+
 function ClosureWatchNotice({
   progress,
   attention,
@@ -309,254 +1160,18 @@ function ClosureWatchNotice({
   );
 }
 
-function ConditionSection({
-  intelligence,
-  financialRatio,
-}: {
-  intelligence: ProjectIntelligence;
-  financialRatio: number | null;
-}) {
-  const { context } = intelligence;
+// ============================================================================
+// Section 12 — TECHNICAL DETAILS (existing, expanded)
+// ============================================================================
 
-  return (
-    <section className="detail-section">
-      {/* Dark TRACE OUTLOOK anchor */}
-      <DeadlineOutlookBlock intelligence={intelligence} />
-
-      {/* Light status block */}
-      <div className="status-outlook__wrap">
-        <h2 className="section-heading font-headline-md">PROJECT STATUS</h2>
-        <ProjectStatusBlock context={context} financialRatio={financialRatio} />
-      </div>
-    </section>
-  );
-}
-
-/**
- * LAYER 2 supporting surface — execution pace, framed for an officer.
- * Raw technical values belong in the "Technical Details" section.
- */
-function ProgressIntelligenceSection({
-  intelligence,
-}: {
-  intelligence: ProjectIntelligence;
-}) {
-  const { context } = intelligence;
-
-  const observedVelocity =
-    context.observedVelocity !== null && context.observedVelocity !== undefined
-      ? `${context.observedVelocity.toFixed(1)}%/mo`
-      : '—';
-  const requiredVelocity =
-    context.requiredVelocity !== null && context.requiredVelocity !== undefined
-      ? `${context.requiredVelocity.toFixed(1)}%/mo`
-      : '—';
-
-  const velocityConflict =
-    context.observedVelocity !== null &&
-    context.observedVelocity !== undefined &&
-    context.requiredVelocity !== null &&
-    context.requiredVelocity !== undefined &&
-    context.observedVelocity < context.requiredVelocity;
-
-  const stateLabel =
-    scheduleStateLabelFor(context.scheduleState) ?? context.scheduleState;
-
-  const items = [
-    {
-      label: 'Recent Completion Pace',
-      value: observedVelocity,
-      sub: 'per month, from recent reports',
-      color: '',
-    },
-    {
-      label: 'Pace Needed for Deadline',
-      value: requiredVelocity,
-      sub:
-        context.requiredVelocity === null
-          ? 'Not computable past deadline'
-          : 'per month to hold the deadline',
-      color: velocityConflict ? 'error' : '',
-    },
-    {
-      label: 'Schedule',
-      value: stateLabel,
-      sub: 'Latest assessment',
-      color: context.scheduleState === 'on_track' ? 'ok' : 'error',
-    },
-    {
-      label: 'Time Remaining',
-      value: context.remainingDays !== null ? formatDays(context.remainingDays) : '—',
-      sub: context.remainingDays !== null && context.remainingDays < 0 ? 'Past deadline' : 'Until deadline',
-      color: context.remainingDays !== null && context.remainingDays < 0 ? 'error' : '',
-    },
-  ];
-
-  return (
-    <section className="detail-section">
-      <div className="section-heading-block">
-        <h2 className="section-heading font-headline-md">PROJECT PROGRESS</h2>
-        <p className="section-subheading font-metadata">
-          How the project&apos;s recent progress compares with the current deadline.
-        </p>
-      </div>
-
-      <div className="progress-strip">
-        {items.map(item => (
-          <div key={item.label} className="progress-strip__item">
-            <span className="progress-strip__label font-label-caps">{item.label}</span>
-            <span className={`progress-strip__value font-headline-md ${item.color === 'error' ? 'color-error' : ''} ${item.color === 'ok' ? 'color-ok' : ''}`}>
-              {item.value}
-              {item.sub && <span className="progress-strip__sub font-metadata"> · {item.sub}</span>}
-            </span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function ReasonsSection({ reasons }: { reasons: Reason[] }) {
-  if (reasons.length === 0) {
-    return (
-      <section className="detail-section">
-        <div className="section-heading-block">
-          <h2 className="section-heading font-headline-md">WHAT&apos;S DRIVING THIS OUTLOOK</h2>
-          <p className="section-subheading font-metadata">
-            Signals associated with the outlook above.
-          </p>
-        </div>
-        <p className="font-body-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-          No contributing signals were reported for this project.
-        </p>
-      </section>
-    );
-  }
-
-  return (
-    <section className="detail-section">
-      <div className="section-heading-block">
-        <h2 className="section-heading font-headline-md">WHAT&apos;S DRIVING THIS OUTLOOK</h2>
-        <p className="section-subheading font-metadata">
-          Signals associated with deadline revision, not causes or instructions.
-        </p>
-      </div>
-      <div className="reasons-list">
-        {reasons.map((reason, index) => (
-          <div key={index} className="reason-row">
-            <div className="reason-row__num font-metadata">
-              {String(index + 1).padStart(2, '0')}
-            </div>
-            <div className="reason-row__content">
-              <div className="reason-row__group font-label-caps">
-                {reasonGroupLabel[reason.group] ?? reason.group}
-              </div>
-              <div className="reason-row__message font-body-md">
-                {reason.message}
-              </div>
-            </div>
-            <div className={`reason-row__direction font-label-caps reason-direction--${reason.direction}`}>
-              {reason.direction === 'increases' ? 'Increases likelihood' : 'Reduces likelihood'}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/**
- * Prominent recommended action. Renders the backend LLM text as-is — no
- * invented guidance. Structured as RECOMMENDED ACTION → WHY THIS MATTERS.
- */
-function RecommendationSection({
-  intelligence,
-}: {
-  intelligence: ProjectIntelligence;
-}) {
-  const { recommendation, prediction } = intelligence;
-
-  if (!recommendation) {
-    return (
-      <section className="detail-section">
-        <h2 className="section-heading font-headline-md">RECOMMENDED ACTION</h2>
-        <div className="intelligence-unavailable">
-          <span className="intelligence-unavailable__tag font-label-caps">
-            ⚑ RECOMMENDATION
-          </span>
-          <span className="font-body-md">
-            The model prediction is available, but the written recommendation
-            could not be generated at this time. Try again later.
-          </span>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="detail-section">
-      <h2 className="section-heading font-headline-md">RECOMMENDED ACTION</h2>
-      <div className={`intervention-card intervention-card--${prediction.riskLevel}`}>
-        <div>
-          <span className="font-label-caps color-error">TRACE RECOMMENDATION</span>
-          <h3 className="intervention-card__title font-headline-md">
-            {recommendation.summary}
-          </h3>
-
-          {recommendation.keyReasons.length > 0 && (
-            <div className="intervention-card__block">
-              <span className="intelligence-card__factors-label font-label-caps">
-                Why This Matters
-              </span>
-              <ul className="intervention-list font-body-md">
-                {recommendation.keyReasons.map((reason, i) => (
-                  <li key={i}>{reason}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {recommendation.recommendedActions.length > 0 && (
-            <div className="intervention-card__block">
-              <span className="intelligence-card__factors-label font-label-caps">
-                Suggested Next Steps
-              </span>
-              <ul className="intervention-list intervention-list--actions font-body-md">
-                {recommendation.recommendedActions.map((action, i) => (
-                  <li key={i}>{action}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {recommendation.verificationNeeded.length > 0 && (
-            <div className="intervention-card__block">
-              <span className="intelligence-card__factors-label font-label-caps">
-                Verification Needed
-              </span>
-              <ul className="intervention-list font-body-md">
-                {recommendation.verificationNeeded.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/**
- * Advanced model details — the raw technical figures behind the outlook.
- * Relegated to an expandable section so the decision-maker view stays clean.
- */
 function AdvancedDetailsSection({
   intelligence,
   financialRatio,
+  history,
 }: {
   intelligence: ProjectIntelligence;
   financialRatio: number | null;
+  history: ProjectHistory | null;
 }) {
   const { prediction, context, reasons } = intelligence;
 
@@ -624,6 +1239,24 @@ function AdvancedDetailsSection({
       value: financialRatio !== null ? financialRatio.toFixed(3) : '—',
     },
     {
+      label: 'Observations',
+      value: history ? `${history.observationCount} (${history.observationFrequency})` : '—',
+    },
+    {
+      label: 'Progress Gap',
+      value: history?.progressGap !== null && history?.progressGap !== undefined
+        ? `${history.progressGap > 0 ? '+' : ''}${history.progressGap.toFixed(1)} pp`
+        : '—',
+    },
+    {
+      label: 'Stall Status',
+      value: history?.stallStatus ?? '—',
+    },
+    {
+      label: 'Deadline Revisions',
+      value: history ? `${history.deadlineRevisionCount}` : '—',
+    },
+    {
       label: 'Model Contribution',
       value:
         reasons.length > 0
@@ -669,61 +1302,14 @@ function AdvancedDetailsSection({
   );
 }
 
-function ExternalEvidenceSection({
-  intelligence,
-}: {
-  intelligence: ProjectIntelligence;
-}) {
-  const evidence = intelligence.externalEvidence ?? [];
-
-  if (evidence.length === 0) {
-    return (
-      <section className="detail-section">
-        <h2 className="section-heading font-headline-md">EXTERNAL EVIDENCE</h2>
-        <div className="evidence-empty font-body-md">
-          No relevant external evidence found for this project.
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="detail-section">
-      <div className="section-heading-row">
-        <h2 className="section-heading font-headline-md">EXTERNAL EVIDENCE</h2>
-        <span className="font-metadata evidence-disclaimer">
-          External sources · separate from PAIMANA data
-        </span>
-      </div>
-      <div className="evidence-list">
-        {evidence.map((item, index) => (
-          <a
-            key={index}
-            href={item.url}
-            target="_blank"
-            rel="noreferrer"
-            className="evidence-item"
-          >
-            <div className="evidence-item__top">
-              <span className={`evidence-quality evidence-quality--${item.quality} font-label-caps`}>
-                {item.quality.toUpperCase()} QUALITY
-              </span>
-              <span className="font-metadata evidence-item__source">{item.source}</span>
-            </div>
-            <h3 className="evidence-item__title font-headline-md">{item.title}</h3>
-            <p className="evidence-item__claim font-body-md">{item.claim}</p>
-            <div className="font-metadata evidence-item__date">{formatDate(item.date)}</div>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
+// ============================================================================
+// Main Page
+// ============================================================================
 
 export default function ProjectDetailPage() {
   const { projectCode } = useParams<{ projectCode: string }>();
 
-  const { project, loading: projectLoading, error: projectError } =
+  const { project, history, loading: projectLoading, error: projectError } =
     useProject(projectCode);
 
   const {
@@ -732,6 +1318,13 @@ export default function ProjectDetailPage() {
     error: intelligenceError,
     errorCode: intelligenceErrorCode,
   } = useIntelligence(projectCode, project?.reportMonth ?? undefined);
+
+  const financialRatio =
+    project?.originalCost &&
+    project.cumulativeExpenditure !== null &&
+    project.originalCost > 0
+      ? project.cumulativeExpenditure / project.originalCost
+      : null;
 
   return (
     <>
@@ -747,7 +1340,7 @@ export default function ProjectDetailPage() {
             <span>{project?.projectName ?? projectCode}</span>
           </div>
 
-          {/* ── A · PROJECT HEADER ── */}
+          {/* ── PROJECT HEADER ── */}
           <section className="detail-header">
             <h1 className="detail-header__title font-display-lg">
               {project?.projectName?.toUpperCase() ?? 'PROJECT'}
@@ -817,61 +1410,65 @@ export default function ProjectDetailPage() {
               </section>
             )}
 
-          {/* ── INTELLIGENCE CONTENT ── */}
+          {/* ══════════════════════════════════════════════════════════ */}
+          {/* INTELLIGENCE CONTENT — restructured information hierarchy */}
+          {/* ══════════════════════════════════════════════════════════ */}
           {intelligence && !intelligenceLoading && (
             <>
-              {/* B + C · project status & deadline outlook */}
+              {/* 1. TRACE OUTLOOK (dark anchor with trend) */}
               <ConditionSection
                 intelligence={intelligence}
-                financialRatio={
-                  project?.originalCost &&
-                  project.cumulativeExpenditure !== null &&
-                  project.originalCost > 0
-                    ? project.cumulativeExpenditure / project.originalCost
-                    : null
-                }
+                financialRatio={financialRatio}
+                history={history}
               />
 
-              {/* D · closure watch (only at 97%+ reported completion) */}
+              {/* Closure watch notice (only at 97%+ reported completion) */}
               {project?.projectStage === 'closure_watch' &&
                 project.physicalProgress !== null && (
                   <ClosureWatchNotice
                     progress={project.physicalProgress}
                     attention={project.attentionCategory}
-                    financialProgress={
-                      project.originalCost &&
-                      project.cumulativeExpenditure !== null &&
-                      project.originalCost > 0
-                        ? (project.cumulativeExpenditure / project.originalCost) * 100
-                        : null
-                    }
+                    financialProgress={financialRatio !== null ? financialRatio * 100 : null}
                     scheduleState={scheduleStateLabelFor(project.scheduleState) ?? '—'}
                     remainingDays={project.remainingDays ?? 0}
                   />
                 )}
 
-              {/* E · progress & schedule */}
-              <ProgressIntelligenceSection intelligence={intelligence} />
-
-              {/* F · what's driving the outlook */}
-              <ReasonsSection reasons={intelligence.reasons} />
-
-              {/* G · recommended action */}
-              <RecommendationSection intelligence={intelligence} />
-
-              {/* H · technical details (expandable) */}
-              <AdvancedDetailsSection
+              {/* 2. ACTION PLAN — derived from project signals */}
+              <ActionPlanSection
                 intelligence={intelligence}
-                financialRatio={
-                  project?.originalCost &&
-                  project.cumulativeExpenditure !== null &&
-                  project.originalCost > 0
-                    ? project.cumulativeExpenditure / project.originalCost
-                    : null
-                }
+                history={history}
+                project={project!}
               />
 
+              {/* 3. WHY THIS MATTERS — risk drivers */}
+              <ReasonsSection reasons={intelligence.reasons} />
+
+              {/* 4. WHAT CHANGED — delta between last two observations */}
+              {history && <WhatChangedSection history={history} />}
+
+              {/* 5. PROJECT TRAJECTORY — execution pace */}
+              <ProgressIntelligenceSection intelligence={intelligence} />
+
+              {/* 6. BASELINE & GOVERNANCE — deadline history + ownership */}
+              <GovernancePanel history={history} project={project!} />
+
+              {/* 7. EVIDENCE & DATA QUALITY */}
+              <EvidenceDataQualitySection
+                intelligence={intelligence}
+                history={history}
+                project={project!}
+              />
+
+              {/* 8. EXTERNAL EVIDENCE — enhanced empty state */}
               <ExternalEvidenceSection intelligence={intelligence} />
+
+              {/* 9. TECHNICAL DETAILS (expandable) */}
+              <AdvancedDetailsSection
+                intelligence={intelligence}
+                financialRatio={financialRatio}
+                history={history}
+              />
             </>
           )}
 
